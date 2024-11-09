@@ -1,3 +1,33 @@
+const styleElement = document.createElement("style");
+
+// Define your CSS as a string
+styleElement.textContent = `
+  .primary-title-container h1 {
+    color: black;
+  }
+  .title-container h1 {
+    color: red;
+  }
+  .icon-container {
+    color: red;
+  }
+  .caption-container {
+    color: red;
+  }
+  /* Hide the chapter title and lesson title on the lesson page */
+  .course-item__chapter-title,
+  .course-item__lesson-title {
+      display: none;
+  }
+`;
+
+// Append the <style> element to the document head
+document.head.appendChild(styleElement);
+
+
+
+
+
 
 function safeSetInnerHTML(elementId, innerHTMLContent) {
     const element = document.getElementById(elementId);
