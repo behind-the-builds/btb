@@ -48,11 +48,26 @@ safeSetInnerHTML("btb_title_2", `<div class="title-container"><h1 style="white-s
 safeSetInnerHTML("btb_icon_2_1", `<div class="icon-container"><i class="fas fa-cog"></i></div><div class="title-container">Differential Function</div><div class="content-container">Allows front wheels to rotate at different speeds during turns, crucial for both on-road handling and off-road traction.</div>`);
 safeSetInnerHTML("btb_icon_2_2", `<div class="icon-container"><i class="fas fa-lock"></i></div><div class="title-container">Locking Capability</div><div class="content-container">Part of the G-Class's unique three locking differentials system, enhancing extreme off-road performance.</div>`);
 safeSetInnerHTML("btb_maintext_2", `<div class="maintext-container"><p class="sqsrte-large" style="white-space:pre-wrap;">In this section, we assemble the <strong>front differential</strong> of our model. The front differential is a crucial component of the G-Class's advanced <strong>four-wheel-drive system</strong>, allowing the front wheels to rotate at different speeds during turns while maintaining optimal traction.</p></div><div class="maintext-container"><p class="sqsrte-large" style="white-space:pre-wrap;">The G-Class stands out in the luxury SUV segment with its unique <strong>three locking differentials</strong> system – front, center, and rear. When engaged, the <strong>locking front differential</strong> locks the front wheels together, forcing them to rotate at the same speed. This feature proves invaluable in extreme <strong>off-road situations</strong>, allowing the G500 to maintain forward momentum even when one wheel loses traction. Such engineering contributes to the G-Wagen's ability to conquer diverse terrains, from rocky mountain trails to desert dunes, reinforcing its reputation as a go-anywhere vehicle.</p></div>`);
-safeSetInnerHTML("btb_image_2", `<img src="https://github.com/behind-the-builds/btb/g500/images/Differential_Gear_(PSF).png" alt="A diagram of a differential gear">`);
-safeSetInnerHTML("btb_caption_2", `<div class="caption-container"><p class="sqsrte-large" style="white-space:pre-wrap;">A diagram of a differential gear</p></div><div class="source-container"><p class="sqsrte-large" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Differential_Gear_(PSF).png" target="_blank">source</a></p></div>`);
+
+document.getElementById("btb_image_2").parentElement.style.display = "none";
+document.getElementById("btb_caption_2").parentElement.style.display = "none";
+
+
 safeSetInnerHTML("btb_title_3", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 9-16: Front Hubs and Suspension</h1></div>`);
 safeSetInnerHTML("btb_icon_3_1", `<div class="icon-container"><i class="fas fa-cog"></i></div><div class="title-container">Independent Front Suspension</div><div class="content-container">Introduced in 2019, aiming to improve on-road comfort and handling while maintaining off-road capability.</div>`);
 safeSetInnerHTML("btb_icon_3_2", `<div class="icon-container"><i class="fas fa-car"></i></div><div class="title-container">Design Trade-offs</div><div class="content-container">The new suspension offers better articulation, but some argue it may compromise extreme off-road performance.</div>`);
 safeSetInnerHTML("btb_maintext_3", `<div class="maintext-container"><p class="sqsrte-large" style="white-space:pre-wrap;">In this section, we assemble the <strong>front hubs</strong> and <strong>suspension</strong> of our G-Class model. In 2019, Mercedes-Benz introduced an <strong>independent front suspension</strong>, replacing the solid front axle that had been a feature of the G-Class since 1979.</p></div><div class="maintext-container"><p class="sqsrte-large" style="white-space:pre-wrap;">This change aimed to improve the G-Class's <strong>on-road handling</strong> and ride comfort, addressing criticisms of the vehicle's sometimes harsh ride on paved roads. Mercedes-Benz states they worked to ensure this change didn't compromise the <strong>G-Wagen's off-road capabilities</strong>. The new design allows for better wheel articulation and more precise control, potentially enhancing both on-road stability and off-road performance.</p></div><div class="maintext-container"><p class="sqsrte-large" style="white-space:pre-wrap;">This modern setup uses a <strong>double-wishbone design</strong>, which allows for better wheel travel and improved ride quality. However, some purists argue that the solid axle design was superior for extreme off-road use.</p></div>`);
 safeSetInnerHTML("btb_image_3", `<img src="https://github.com/behind-the-builds/btb/g500/images/Off-RoadPreparation.jpg" alt="A G500 off road">`);
 safeSetInnerHTML("btb_caption_3", `<div class="caption-container"><p class="sqsrte-large" style="white-space:pre-wrap;">A G500 off road</p></div><div class="source-container"><p class="sqsrte-large" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Off-RoadPreparation.jpg" target="_blank">source</a></p></div>`);
+
+    const element = document.getElementById("btb_image_1");
+
+    if (element && element.innerHTML.trim() === "") {
+        // Get the parent element
+        const parent = element.parentElement;
+
+        // Hide the parent element
+        if (parent) {
+            parent.style.display = "none";
+        }
+    }
