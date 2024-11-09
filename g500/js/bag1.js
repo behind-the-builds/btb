@@ -60,14 +60,11 @@ safeSetInnerHTML("btb_maintext_3", `<div class="maintext-container"><p class="sq
 safeSetInnerHTML("btb_image_3", `<img src="https://github.com/behind-the-builds/btb/g500/images/Off-RoadPreparation.jpg" alt="A G500 off road">`);
 safeSetInnerHTML("btb_caption_3", `<div class="caption-container"><p class="sqsrte-large" style="white-space:pre-wrap;">A G500 off road</p></div><div class="source-container"><p class="sqsrte-large" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Off-RoadPreparation.jpg" target="_blank">source</a></p></div>`);
 
-    const element = document.getElementById("btb_image_1");
-
-    if (element && element.innerHTML.trim() === "") {
-        // Get the parent element
-        const parent = element.parentElement;
-
-        // Hide the parent element
-        if (parent) {
-            parent.style.display = "none";
-        }
+    // Select all elements with data-test="page-section"
+    const sections = document.querySelectorAll('section[data-test="page-section"]');
+    
+    // Set the nth element's visibility to hidden (e.g., third element)
+    const nthElement = 2; // Adjust this to target the nth instance you need
+    if (sections.length >= nthElement) {
+        sections[nthElement - 1].style.visibility = "hidden";
     }
