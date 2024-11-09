@@ -66,5 +66,5 @@ safeSetInnerHTML("btb_caption_3", `<div class="caption-container"><p class="sqsr
     // Set the nth element's visibility to hidden (e.g., third element)
     const nthElement = 2; // Adjust this to target the nth instance you need
     if (sections.length >= nthElement) {
-        sections[nthElement - 1].style.visibility = "hidden";
+        sections[nthElement].style.display = "none";
     }
