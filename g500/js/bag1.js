@@ -11,7 +11,7 @@ styleElement.textContent = `
   .icon-container {
     color: red;
   }
-  .caption-container {
+  .caption-container p {
     color: red;
   }
   /* Hide the chapter title and lesson title on the lesson page */
