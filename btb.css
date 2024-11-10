@@ -26,7 +26,7 @@
   border-radius: 4px;
   padding: 2px 4px;
   text-decoration: none;
-  cursor: hand;
+  cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
   line-height: 1;
   box-sizing: border-box;
