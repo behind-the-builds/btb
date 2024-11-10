@@ -12,21 +12,31 @@
   flex-direction: column;
   align-items: center;
 }
-
-.read-to-me-btn {
+/* Container for Audio Player */
+.audio-player {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   width: 100%;
-  font-size: 1rem;
+  gap: 5px; /* Space between button and progress bar */
+}
+
+/* Read-to-Me Button Styles */
+.read-to-me-btn {
+  display: flex;
+  align-items: center; /* Vertically centers icon and text */
+  justify-content: center;
+  font-size: 0.9rem; /* Slightly smaller font */
   color: inherit;
   background-color: transparent;
-  border: 2px solid currentColor;
-  border-radius: 5px;
-  padding: 0.5em 1em;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  padding: 4px 8px; /* Compact padding for a shorter height */
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
+  line-height: 1; /* Ensures tight vertical alignment */
+  height: 30px; /* Control overall button height */
 }
 
 .read-to-me-btn:hover {
@@ -35,21 +45,23 @@
 }
 
 .icon {
-  margin-right: 0.5em;
+  margin-right: 5px; /* Space between icon and text */
+  font-size: 1rem; /* Match icon size with text size */
 }
 
+/* Compact Progress Bar */
 .progress-bar {
   width: 100%;
-  margin-top: 10px;
-  appearance: none;
   height: 4px;
+  appearance: none;
   background: #ccc;
   cursor: pointer;
   outline: none;
   border-radius: 2px;
+  margin-top: 5px;
 }
 
-/* Style the progress bar thumb */
+/* Style the progress bar thumb for compact look */
 .progress-bar::-webkit-slider-thumb {
   appearance: none;
   width: 8px;
@@ -66,5 +78,6 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
 
 
