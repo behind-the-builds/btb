@@ -13,3 +13,9 @@
 .caption-container p {
   color: red;
 }
+
+  /* Hide the chapter title and lesson title on the lesson page */
+  .course-item__chapter-title,
+  .course-item__lesson-title {
+      display: none;
+  }
