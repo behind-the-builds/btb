@@ -1,0 +1,70 @@
+/* Hide the chapter title and lesson title on the lesson page */
+.course-item__chapter-title,
+.course-item__lesson-title {
+  display: none;
+}
+
+/* Audio Player Styles */
+.audio-player {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.read-to-me-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 1rem;
+  color: inherit;
+  background-color: transparent;
+  border: 2px solid currentColor;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.read-to-me-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.icon {
+  margin-right: 0.5em;
+}
+
+.progress-bar {
+  width: 100%;
+  margin-top: 10px;
+  appearance: none;
+  height: 4px;
+  background: #ccc;
+  cursor: pointer;
+  outline: none;
+  border-radius: 2px;
+}
+
+/* Style the progress bar thumb */
+.progress-bar::-webkit-slider-thumb {
+  appearance: none;
+  width: 8px;
+  height: 8px;
+  background: black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.progress-bar::-moz-range-thumb {
+  width: 8px;
+  height: 8px;
+  background: black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
