@@ -65,7 +65,7 @@ safeSetInnerHTML("btb_caption_3", `<div class="caption-container"><p class="sqsr
     const sections = document.querySelectorAll('section[data-test="page-section"]');
     
     // Set the nth element's visibility to hidden (e.g., third element)
-    const nthElement = 2; // Adjust this to target the nth instance you need
+ /*   const nthElement = 2; // Adjust this to target the nth instance you need
     if (sections.length >= nthElement) {
         sections[nthElement].style.display = "none";
-    }
+    }*/
