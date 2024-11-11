@@ -71,37 +71,38 @@ function displayNoneGGP(elementId) {
 }
 
 function applyResponsiveGridLayout() {
-    // Check if gridChanges is defined before proceeding
     if (typeof gridChanges === 'undefined') {
         console.warn("gridChanges is not defined. Skipping applyResponsiveGridLayout.");
         return;
     }
 
-    const isDesktop = isDesktopView();  // Checks if the current view is desktop
+    const isDesktop = isDesktopView();
+
     gridChanges.forEach(change => {
-        // Select the elements by class name within the specified section
         const sectionElements = document.querySelectorAll(`.section-${change.sectionIndex} .${change.elementClass}`);
         
         sectionElements.forEach(element => {
-            // Traverse up three levels to reach the great-grandparent
             let target = element;
             for (let i = 0; i < 3; i++) {
                 target = target.parentElement;
-                if (!target) break; // Stop if there's no further parent
+                if (!target) break;
             }
 
             if (target) {
-                // Apply desktop or default styles based on the view
-                const values = isDesktop ? change.desktop : change.default;
+                const values = isDesktop ? change.desktop : change.saved;
                 for (const [property, value] of Object.entries(values)) {
                     target.style[property] = value;
                 }
-            } else {
-                console.warn(`Could not find great-grandparent for ${change.elementClass} in section ${change.sectionIndex}`);
             }
         });
     });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    recordInitialGridState();  // Call once to store initial values
+    applyResponsiveGridLayout();  // Apply initial layout
+    window.addEventListener("resize", applyResponsiveGridLayout);  // Adjust layout on resize
+});
 
 // Attach the function to the resize event
 window.addEventListener("resize", applyResponsiveGridLayout);
