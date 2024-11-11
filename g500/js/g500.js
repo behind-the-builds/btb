@@ -80,7 +80,7 @@ function applyResponsiveGridLayout() {
     const isDesktop = isDesktopView();  // Checks if the current view is desktop
     gridChanges.forEach(change => {
         // Select the elements by class name within the specified section
-        const sectionElements = document.querySelectorAll(\`.section-${change.sectionIndex} .${change.elementClass}\`);
+        const sectionElements = document.querySelectorAll(`.section-${change.sectionIndex} .${change.elementClass}`);
         
         sectionElements.forEach(element => {
             // Traverse up three levels to reach the great-grandparent
