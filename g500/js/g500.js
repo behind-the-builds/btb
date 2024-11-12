@@ -57,19 +57,6 @@ function toggleAudio(event, audioId, iconId, progressBarId) {
   });
 }
 
-function displayNoneGGP(elementId) {
-    // Get the element by ID and traverse up three levels to the great-grandparent
-    const element = document.getElementById(elementId);
-    const ggpElement = element?.parentElement?.parentElement?.parentElement;
-
-    // If the great-grandparent exists, set its display to 'none'
-    if (ggpElement) {
-        ggpElement.style.display = "none";
-    } else {
-        console.warn(`Great-grandparent element for #${elementId} not found.`);
-    }
-}
-
 function applyResponsiveGridLayout() {
     if (typeof gridChanges === 'undefined') {
         console.warn("gridChanges is not defined. Skipping applyResponsiveGridLayout.");
@@ -120,31 +107,40 @@ function hideExtraSections(totalSections) {
 }
 
 function hideElement(className, sectionIndex) {
-    console.log(`hideElement called with className: ${className} and sectionIndex: ${sectionIndex}`);
+    //console.log(`hideElement called with className: ${className} and sectionIndex: ${sectionIndex}`);
     
-    // Find the specific element within the section based on the class name
-    const sectionElements = document.querySelectorAll(`.section-${sectionIndex} .${className}`);
-    console.log(`Number of elements found with class '${className}' in section ${sectionIndex}: ${sectionElements.length}`);
-    
-    sectionElements.forEach((element, index) => {
-        console.log(`Processing element ${index + 1} of ${sectionElements.length}`);
+    // Select all section elements and ensure the specified section index exists
+    const sections = document.querySelectorAll("section");
+    if (sectionIndex >= 0 && sectionIndex < sections.length) {
+        const section = sections[sectionIndex];
+        //console.log(`Found section at index ${sectionIndex}`);
         
-        // Traverse up three levels to reach the great-grandparent
-        let target = element;
-        for (let i = 0; i < 3; i++) {
-            if (!target) {
-                console.warn(`Stopped traversing: no parent element at level ${i + 1}`);
-                break;
+        // Now find the target element within this section by class name
+        const sectionElements = section.querySelectorAll(`.${className}`);
+        //console.log(`Number of elements found with class '${className}' in section ${sectionIndex}: ${sectionElements.length}`);
+        
+        sectionElements.forEach((element, index) => {
+            //console.log(`Processing element ${index + 1} of ${sectionElements.length}`);
+            
+            // Traverse up three levels to reach the great-grandparent
+            let target = element;
+            for (let i = 0; i < 3; i++) {
+                if (!target) {
+                    console.warn(`Stopped traversing: no parent element at level ${i + 1}`);
+                    break;
+                }
+                target = target.parentElement;
             }
-            target = target.parentElement;
-        }
 
-        // Apply display: none if the great-grandparent element exists
-        if (target) {
-            target.style.display = 'none';
-            console.log(`Set display: none on great-grandparent of element with class '${className}' in section ${sectionIndex}`);
-        } else {
-            console.warn(`Could not find great-grandparent for ${className} in section ${sectionIndex}`);
-        }
-    });
+            // Apply display: none if the great-grandparent element exists
+            if (target) {
+                target.style.display = 'none';
+                //console.log(`Set display: none on great-grandparent of element with class '${className}' in section ${sectionIndex}`);
+            } else {
+                console.warn(`Could not find great-grandparent for ${className} in section ${sectionIndex}`);
+            }
+        });
+    } else {
+        console.warn(`Section index '${sectionIndex}' is out of bounds.`);
+    }
 }
