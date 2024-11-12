@@ -65,45 +65,64 @@ function getElementsInSection(sectionIndex, className) {
     }
 }
 
-function applyResponsiveGridLayout() {
+function applyGridLayout() {
+    console.log("applyGridLayout called");
+
     if (typeof gridChanges === 'undefined') {
-        console.warn("gridChanges is not defined. Skipping applyResponsiveGridLayout.");
+        console.warn("gridChanges is not defined. Skipping applyGridLayout.");
         return;
     }
 
     const isDesktop = isDesktopView();
+    console.log("isDesktop:", isDesktop);
+    console.log("gridChanges:", gridChanges);
 
-    gridChanges.forEach(change => {
+    gridChanges.forEach((change, index) => {
+        console.log(`Processing gridChange ${index + 1}:`, change);
+
         // Use the helper function to get elements within the specified section and class
         const sectionElements = getElementsInSection(change.sectionIndex, change.elementClass);
-        
-        sectionElements.forEach(element => {
+        console.log(`Elements found in section ${change.sectionIndex} with class '${change.elementClass}':`, sectionElements);
+
+        sectionElements.forEach((element, elemIndex) => {
+            console.log(`Processing element ${elemIndex + 1} of ${sectionElements.length}`);
+
             let target = element;
             for (let i = 0; i < 3; i++) {
                 target = target.parentElement;
-                if (!target) break;
+                if (!target) {
+                    console.warn(`Stopped traversing: no parent element at level ${i + 1}`);
+                    break;
+                }
             }
 
             if (target) {
+                console.log(`Applying styles to target for element with class '${change.elementClass}' in section ${change.sectionIndex}`);
                 if (isDesktop) {
                     // Apply desktop-specific styles
                     for (const [property, value] of Object.entries(change.desktop)) {
+                        console.log(`Setting ${property} to '${value}'`);
                         target.style[property] = value;
                     }
                 } else {
                     // Remove desktop-specific styles by clearing them
                     for (const property in change.desktop) {
+                        console.log(`Clearing ${property}`);
                         target.style[property] = "";
                     }
                 }
+            } else {
+                console.warn(`Could not find target (great-grandparent) for element with class '${change.elementClass}' in section ${change.sectionIndex}`);
             }
         });
     });
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    applyResponsiveGridLayout();  // Apply initial layout
-    window.addEventListener("resize", applyResponsiveGridLayout);  // Adjust layout on resize
+    console.log("DOMContentLoaded event fired");
+    applyGridLayout();  // Apply initial layout
+    window.addEventListener("resize", applyGridLayout);  // Adjust layout on resize
+    console.log("Resize event listener added");
 });
 
 function hideExtraSections(totalSections) {
