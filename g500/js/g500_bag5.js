@@ -175,7 +175,7 @@ safeSetInnerHTML(1, "btb_maintext", `<p class="sqsrte-large" style="white-space:
 safeSetInnerHTML(1, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Mercedes-AMG_M_177_Typ_205.jpg" alt="AMG V8 Engine - A representation of earlier high-performance variants.">`);
 safeSetInnerHTML(1, "btb_caption", `<div class="caption-container"><p class="sqsrte-large" style="white-space:pre-wrap;">AMG V8 Engine - A representation of earlier high-performance variants.</p></div><div class="source-container"><p class="sqsrte-large" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Mercedes-AMG_M_177_Typ_205.jpg" target="_blank">source</a></p></div>`);
 hideExtraSections(1);
-const gridChanges = [{'elementClass': 'btb_icon_1', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 1, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '27'}}];
+const gridChanges = [{'elementClass': 'btb_icon_1', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 1, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}];
 
 applyGridLayout();  // Apply initial layout
 window.addEventListener("resize", applyGridLayout);
