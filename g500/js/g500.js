@@ -5,7 +5,7 @@ function isDesktopView() {
 
 
 function safeSetInnerHTML(sectionIndex, className, innerHTMLContent) {
-    //console.log(`safeSetInnerHTML called with sectionIndex: ${sectionIndex} and className: ${className}`);
+    console.log(`safeSetInnerHTML called with sectionIndex: ${sectionIndex} and className: ${className}`);
 
     // Use the helper function to get elements within the specified section and class
     const sectionElements = getElementsInSection(sectionIndex, className);
@@ -13,7 +13,7 @@ function safeSetInnerHTML(sectionIndex, className, innerHTMLContent) {
     if (sectionElements.length > 0) {
         // Set innerHTML for the first matched element in the section
         sectionElements[0].innerHTML = innerHTMLContent;
-        //console.log(`Set innerHTML for element with class '${className}' in section index '${sectionIndex}'.`);
+        console.log(`Set innerHTML for element with class '${className}' in section index '${sectionIndex}'.`);
     } else {
         console.warn(`Element with class '${className}' not found in section index '${sectionIndex}'.`);
     }
@@ -85,9 +85,16 @@ function applyResponsiveGridLayout() {
             }
 
             if (target) {
-                const values = isDesktop ? change.desktop : change.saved;
-                for (const [property, value] of Object.entries(values)) {
-                    target.style[property] = value;
+                if (isDesktop) {
+                    // Apply desktop-specific styles
+                    for (const [property, value] of Object.entries(change.desktop)) {
+                        target.style[property] = value;
+                    }
+                } else {
+                    // Remove desktop-specific styles by clearing them
+                    for (const property in change.desktop) {
+                        target.style[property] = "";
+                    }
                 }
             }
         });
@@ -95,13 +102,9 @@ function applyResponsiveGridLayout() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    recordInitialGridState();  // Call once to store initial values
     applyResponsiveGridLayout();  // Apply initial layout
     window.addEventListener("resize", applyResponsiveGridLayout);  // Adjust layout on resize
 });
-
-// Attach the function to the resize event
-window.addEventListener("resize", applyResponsiveGridLayout);
 
 function hideExtraSections(totalSections) {
     const sections = document.querySelectorAll("section");
@@ -116,14 +119,14 @@ function hideExtraSections(totalSections) {
 }
 
 function hideElement(className, sectionIndex) {
-    //console.log(`hideElement called with className: ${className} and sectionIndex: ${sectionIndex}`);
+    console.log(`hideElement called with className: ${className} and sectionIndex: ${sectionIndex}`);
 
     // Use the helper function to get elements within the specified section and class
     const sectionElements = getElementsInSection(sectionIndex, className);
-    //console.log(`Number of elements found with class '${className}' in section ${sectionIndex}: ${sectionElements.length}`);
+    console.log(`Number of elements found with class '${className}' in section ${sectionIndex}: ${sectionElements.length}`);
 
     sectionElements.forEach((element, index) => {
-        //console.log(`Processing element ${index + 1} of ${sectionElements.length}`);
+        console.log(`Processing element ${index + 1} of ${sectionElements.length}`);
 
         // Traverse up three levels to reach the great-grandparent
         let target = element;
@@ -138,7 +141,7 @@ function hideElement(className, sectionIndex) {
         // Apply display: none if the great-grandparent element exists
         if (target) {
             target.style.display = 'none';
-            //console.log(`Set display: none on great-grandparent of element with class '${className}' in section ${sectionIndex}`);
+            console.log(`Set display: none on great-grandparent of element with class '${className}' in section ${sectionIndex}`);
         } else {
             console.warn(`Could not find great-grandparent for ${className} in section ${sectionIndex}`);
         }
