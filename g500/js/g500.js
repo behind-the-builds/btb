@@ -5,27 +5,19 @@ function isDesktopView() {
 
 
 function safeSetInnerHTML(sectionIndex, className, innerHTMLContent) {
-    // Select the section by its index
-    const sections = document.querySelectorAll("section");
-    
-    // Ensure section exists for the given index and class
-    if (sectionIndex >= 0 && sectionIndex < sections.length) {
-        const section = sections[sectionIndex];
-        
-        // Find the first element within this section that matches the given class name
-        const element = section.querySelector(`.${className}`);
-        
-        if (element) {
-            element.innerHTML = innerHTMLContent;
-        } else {
-            console.warn(`Element with class '${className}' not found in section index '${sectionIndex}'.`);
-        }
+    //console.log(`safeSetInnerHTML called with sectionIndex: ${sectionIndex} and className: ${className}`);
+
+    // Use the helper function to get elements within the specified section and class
+    const sectionElements = getElementsInSection(sectionIndex, className);
+
+    if (sectionElements.length > 0) {
+        // Set innerHTML for the first matched element in the section
+        sectionElements[0].innerHTML = innerHTMLContent;
+        //console.log(`Set innerHTML for element with class '${className}' in section index '${sectionIndex}'.`);
     } else {
-        console.warn(`Section index '${sectionIndex}' is out of bounds.`);
+        console.warn(`Element with class '${className}' not found in section index '${sectionIndex}'.`);
     }
 }
-
-
 
 function toggleAudio(event, audioId, iconId, progressBarId) {
   event.preventDefault();
@@ -57,6 +49,22 @@ function toggleAudio(event, audioId, iconId, progressBarId) {
   });
 }
 
+function getElementsInSection(sectionIndex, className) {
+    // Locate all section elements
+    const sections = document.querySelectorAll("section");
+    
+    // Ensure the sectionIndex is within bounds
+    if (sectionIndex >= 0 && sectionIndex < sections.length) {
+        const section = sections[sectionIndex];
+        
+        // Find and return all elements within this section with the specified class name
+        return section.querySelectorAll(`.${className}`);
+    } else {
+        console.warn(`Section index '${sectionIndex}' is out of bounds or section not found.`);
+        return [];
+    }
+}
+
 function applyResponsiveGridLayout() {
     if (typeof gridChanges === 'undefined') {
         console.warn("gridChanges is not defined. Skipping applyResponsiveGridLayout.");
@@ -66,7 +74,8 @@ function applyResponsiveGridLayout() {
     const isDesktop = isDesktopView();
 
     gridChanges.forEach(change => {
-        const sectionElements = document.querySelectorAll(`.section-${change.sectionIndex} .${change.elementClass}`);
+        // Use the helper function to get elements within the specified section and class
+        const sectionElements = getElementsInSection(change.sectionIndex, change.elementClass);
         
         sectionElements.forEach(element => {
             let target = element;
@@ -108,39 +117,30 @@ function hideExtraSections(totalSections) {
 
 function hideElement(className, sectionIndex) {
     //console.log(`hideElement called with className: ${className} and sectionIndex: ${sectionIndex}`);
-    
-    // Select all section elements and ensure the specified section index exists
-    const sections = document.querySelectorAll("section");
-    if (sectionIndex >= 0 && sectionIndex < sections.length) {
-        const section = sections[sectionIndex];
-        //console.log(`Found section at index ${sectionIndex}`);
-        
-        // Now find the target element within this section by class name
-        const sectionElements = section.querySelectorAll(`.${className}`);
-        //console.log(`Number of elements found with class '${className}' in section ${sectionIndex}: ${sectionElements.length}`);
-        
-        sectionElements.forEach((element, index) => {
-            //console.log(`Processing element ${index + 1} of ${sectionElements.length}`);
-            
-            // Traverse up three levels to reach the great-grandparent
-            let target = element;
-            for (let i = 0; i < 3; i++) {
-                if (!target) {
-                    console.warn(`Stopped traversing: no parent element at level ${i + 1}`);
-                    break;
-                }
-                target = target.parentElement;
-            }
 
-            // Apply display: none if the great-grandparent element exists
-            if (target) {
-                target.style.display = 'none';
-                //console.log(`Set display: none on great-grandparent of element with class '${className}' in section ${sectionIndex}`);
-            } else {
-                console.warn(`Could not find great-grandparent for ${className} in section ${sectionIndex}`);
+    // Use the helper function to get elements within the specified section and class
+    const sectionElements = getElementsInSection(sectionIndex, className);
+    //console.log(`Number of elements found with class '${className}' in section ${sectionIndex}: ${sectionElements.length}`);
+
+    sectionElements.forEach((element, index) => {
+        //console.log(`Processing element ${index + 1} of ${sectionElements.length}`);
+
+        // Traverse up three levels to reach the great-grandparent
+        let target = element;
+        for (let i = 0; i < 3; i++) {
+            if (!target) {
+                console.warn(`Stopped traversing: no parent element at level ${i + 1}`);
+                break;
             }
-        });
-    } else {
-        console.warn(`Section index '${sectionIndex}' is out of bounds.`);
-    }
+            target = target.parentElement;
+        }
+
+        // Apply display: none if the great-grandparent element exists
+        if (target) {
+            target.style.display = 'none';
+            //console.log(`Set display: none on great-grandparent of element with class '${className}' in section ${sectionIndex}`);
+        } else {
+            console.warn(`Could not find great-grandparent for ${className} in section ${sectionIndex}`);
+        }
+    });
 }
