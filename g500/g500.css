@@ -1,16 +1,16 @@
+
 .primary-title-container h1 {
   color: black;
 }
 
 .title-container h1 {
-  color: red;
+  color: #F2AA84;
 }
 
 .icon-container {
-  color: red;
+  color: #EF5306;
 }
 
 .caption-container p {
-  color: red;
+  color: black;
 }
-
