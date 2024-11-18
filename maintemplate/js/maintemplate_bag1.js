@@ -167,6 +167,9 @@ function hideElement(className, sectionIndex) {
     });
 }
 safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Mercedes-Benz G500 Professional Line</h1></div>`);
+hideElement("btb_icon_1", 1);
+hideElement("btb_icon_2", 1);
+hideElement("btb_icon_3", 1);
 hideElement("btb_image", 1);
 hideElement("btb_caption", 1);
 safeSetInnerHTML(1, "btb_audio", `<div class="audio-player"><a href="#" class="read-to-me-btn" onclick="toggleAudio(event, 'audio1', 'playPauseIcon1', 'progressBar1')"><i id="playPauseIcon1" class="fas fa-play icon"></i>Read to Me</a><input type="range" id="progressBar1" class="progress-bar" value="0" max="100"><audio id="audio1" src="https://behind-the-builds.github.io/btb/maintemplate/audio/maintemplate_mercedes_benz_g500_professional_line.mp3"></audio></div>`);
