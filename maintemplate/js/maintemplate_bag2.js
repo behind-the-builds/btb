@@ -211,7 +211,7 @@ safeSetInnerHTML(3, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(3, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">We hope you enjoyed using this companion guide as much as we enjoyed creating it!</p><p class="sqsrte-large" style="white-space:pre-wrap;">We really appreciate your feedback on what you love, what we can do better, and what model you'd like to see us do next.</p><p class="sqsrte-large" style="white-space:pre-wrap;">Send us a note at https://www.behindthebuilds.com/contact.</p>`);
 hideElement("btb_video_header", 3);
 hideElement("btb_video_embed", 3);
-hideExtraSections(4);
+hideExtraSections(3);
 const gridChanges = [{'elementClass': 'btb_icon_1', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 1, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 2, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 2, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 3, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '26'}}, {'elementClass': 'btb_maintext', 'sectionIndex': 3, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '26'}}];
 
 applyGridLayout();  // Apply initial layout
