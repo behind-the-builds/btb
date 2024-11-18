@@ -69,7 +69,7 @@ function applyGridLayout() {
     console.log("applyGridLayout called");
 
     // Video resizing logic
-    const containers = document.querySelectorAll('.video-container'); // Select all divs with the fixed class
+    const containers = document.querySelectorAll('.btb_video_embed'); // Select all divs with the fixed class
 
     containers.forEach(container => {
         const iframe = container.querySelector('iframe'); // Get the iframe inside the container
