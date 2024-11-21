@@ -1,4 +1,20 @@
 
+function getElementsInSection(sectionIndex, className) {
+    // Locate all section elements
+    const sections = document.querySelectorAll("section");
+    
+    // Ensure the sectionIndex is within bounds
+    if (sectionIndex >= 0 && sectionIndex < sections.length) {
+        const section = sections[sectionIndex];
+        
+        // Find and return all elements within this section with the specified class name
+        return section.querySelectorAll(`.${className}`);
+    } else {
+        console.warn(`Section index '${sectionIndex}' is out of bounds or section not found.`);
+        return [];
+    }
+}
+
 function safeSetInnerHTML(sectionIndex, className, innerHTMLContent) {
     console.log(`safeSetInnerHTML called with sectionIndex: ${sectionIndex} and className: ${className}`);
 
