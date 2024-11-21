@@ -111,7 +111,5 @@ function isDesktopView() {
 
 safeSetInnerHTML(0, "btb_video_header", `<div class="video-header">Watch an animation of the M256 engine used in the new G500:</div>`);
 safeSetInnerHTML(0, "btb_video_embed", `<iframe src="https://www.youtube.com/embed/wKz58vLmoyc?si=IqN3ttRVf7VjN3Vx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`);
-document.addEventListener('DOMContentLoaded', function() {
-    applyGridLayout();
-    window.addEventListener('resize', applyGridLayout);
-});
+applyGridLayout();
+window.addEventListener('resize', applyGridLayout);
