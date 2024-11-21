@@ -1,6 +1,6 @@
 
 function isDesktopView() {
-    return window.innerWidth > 750;
+    return window.innerWidth > 767;
 }
 
 
@@ -67,6 +67,21 @@ function getElementsInSection(sectionIndex, className) {
 
 function applyGridLayout() {
     console.log("applyGridLayout called");
+
+    // Video resizing logic
+    const containers = document.querySelectorAll('.btb_video_embed'); // Select all divs with the fixed class
+
+    containers.forEach(container => {
+        const iframe = container.querySelector('iframe'); // Get the iframe inside the container
+        if (iframe) {
+            const containerWidth = container.offsetWidth; // Get the width of the container
+            const aspectRatio = 16 / 9; // Video aspect ratio
+
+            // Calculate and set the height of the iframe
+            iframe.style.width = '100%'; // Ensure iframe fills the width of the container
+            iframe.style.height = `${containerWidth / aspectRatio}px`; // Adjust height to maintain aspect ratio
+        }
+    });
 
     if (typeof gridChanges === 'undefined') {
         console.warn("gridChanges is not defined. Skipping applyGridLayout.");
@@ -174,6 +189,8 @@ hideElement("btb_image", 1);
 hideElement("btb_caption", 1);
 safeSetInnerHTML(1, "btb_audio", `<div class="audio-player"><a href="#" class="read-to-me-btn" onclick="toggleAudio(event, 'audio1', 'playPauseIcon1', 'progressBar1')"><i id="playPauseIcon1" class="fas fa-play icon"></i>Read to Me</a><input type="range" id="progressBar1" class="progress-bar" value="0" max="100"><audio id="audio1" src="https://behind-the-builds.github.io/btb/g500/audio/g500_bag_3.mp3"></audio></div>`);
 safeSetInnerHTML(1, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In <strong>Bag 3</strong>, we assemble the <strong>center differential</strong> and <strong>gearbox</strong> of the G500 model, both crucial elements that manage power distribution and vehicle control. The <strong>center differential</strong> plays a key role in the G-Class's legendary off-road ability by dividing engine power between the front and rear axles, allowing wheels to rotate at different speeds. This capability is essential when navigating uneven terrain, as it prevents wheel slippage and ensures that traction is maintained across all four wheels.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The <strong>gearbox</strong>, or transmission, manages the engine's power output to provide the right balance of speed and torque for each driving situation. In the G-Class, the transmission is engineered for versatility, providing low-range gears for off-road power and high-range gears for efficient highway cruising. Together, the center differential and gearbox allow the G500 to adapt to a wide variety of terrains and conditions, balancing power and control in any environment.</p>`);
+hideElement("btb_video_header", 1);
+hideElement("btb_video_embed", 1);
 safeSetInnerHTML(2, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 94-119: Center Differential</h1></div>`);
 safeSetInnerHTML(2, "btb_icon_1", `<div class="icon-container"><i class="fas fa-wrench"></i></div><div class="title-container">Center Differential</div><div class="content-container">Distributes power between front and rear axles for balanced handling.</div>`);
 safeSetInnerHTML(2, "btb_icon_2", `<div class="icon-container"><i class="fas fa-lock"></i></div><div class="title-container">Triple-Locking System</div><div class="content-container">Introduced in the 1980s, it enables independent locks on all differentials for superior traction.</div>`);
@@ -182,6 +199,8 @@ hideElement("btb_image", 2);
 hideElement("btb_caption", 2);
 safeSetInnerHTML(2, "btb_audio", `<div class="audio-player"><a href="#" class="read-to-me-btn" onclick="toggleAudio(event, 'audio2', 'playPauseIcon2', 'progressBar2')"><i id="playPauseIcon2" class="fas fa-play icon"></i>Read to Me</a><input type="range" id="progressBar2" class="progress-bar" value="0" max="100"><audio id="audio2" src="https://behind-the-builds.github.io/btb/g500/audio/g500_instructions_94_119.mp3"></audio></div>`);
 safeSetInnerHTML(2, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In <strong>Instructions 94-119</strong>, we build the <strong>center differential</strong>, which helps manage power between the front and rear axles, a key feature of the G-Class's off-road stability. The G-Class introduced its <strong>triple-locking differential system</strong> in the late 1980s with the W463 model, setting a standard in off-road capability. This advanced feature allows drivers to lock the center, rear, and front differentials independently, providing exceptional traction in extreme conditions....</p><p class="sqsrte-large" style="white-space:pre-wrap;">This system remains one of the defining elements of the G-Class's design, solidifying its reputation as one of the most capable luxury off-road vehicles available.</p>`);
+hideElement("btb_video_header", 2);
+hideElement("btb_video_embed", 2);
 safeSetInnerHTML(3, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 120-134: Transmission</h1></div>`);
 safeSetInnerHTML(3, "btb_icon_1", `<div class="icon-container"><i class="fas fa-cogs"></i></div><div class="title-container">Power Transfer</div><div class="content-container">Transmits engine power to wheels through multiple gear ratios.</div>`);
 safeSetInnerHTML(3, "btb_icon_2", `<div class="icon-container"><i class="fas fa-globe"></i></div><div class="title-container">Low-Range Mode</div><div class="content-container">Boosts torque for off-road performance, ideal for steep and rough terrain.</div>`);
@@ -190,6 +209,8 @@ hideElement("btb_image", 3);
 hideElement("btb_caption", 3);
 safeSetInnerHTML(3, "btb_audio", `<div class="audio-player"><a href="#" class="read-to-me-btn" onclick="toggleAudio(event, 'audio3', 'playPauseIcon3', 'progressBar3')"><i id="playPauseIcon3" class="fas fa-play icon"></i>Read to Me</a><input type="range" id="progressBar3" class="progress-bar" value="0" max="100"><audio id="audio3" src="https://behind-the-builds.github.io/btb/g500/audio/g500_instructions_120_134.mp3"></audio></div>`);
 safeSetInnerHTML(3, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In <strong>Instructions 120-134</strong>, we build the first part of the <strong>transmission</strong>, a crucial system responsible for transferring power from the engine to the wheels. In the G-Class, the transmission is designed to handle both on-road cruising and rigorous off-road demands. It uses multiple gear ratios to balance torque and speed, which is essential for a vehicle that needs to perform reliably on highways as well as rugged trails.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The G500's transmission includes a <strong>low-range mode</strong>, activated for challenging off-road conditions, providing greater torque to handle steep inclines and uneven terrain. This versatility is a hallmark of the G-Class, enabling it to adapt seamlessly to both luxury driving and intense off-road scenarios.</p>`);
+hideElement("btb_video_header", 3);
+hideElement("btb_video_embed", 3);
 safeSetInnerHTML(4, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instr. 134-154: Transmission Completion & Engine Connection</h1></div>`);
 safeSetInnerHTML(4, "btb_icon_1", `<div class="icon-container"><i class="fas fa-car"></i></div><div class="title-container">Manual to Automatic</div><div class="content-container">G-Class moved from manual to automatic transmissions with the W463 model in the late 1980s.</div>`);
 safeSetInnerHTML(4, "btb_icon_2", `<div class="icon-container"><i class="fas fa-tachometer-alt"></i></div><div class="title-container">9-Speed Transmission</div><div class="content-container">Multi-gear system optimizes both on-road efficiency and off-road power.</div>`);
@@ -198,6 +219,8 @@ safeSetInnerHTML(4, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(4, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In <strong>Instructions 134-154</strong>, we complete the <strong>transmission system</strong> and attach it to the engine. Early G-Class models were available with manual transmissions, but with the introduction of the W463 model in the late 1980s, Mercedes-Benz transitioned to <strong>automatic transmissions</strong> to enhance driving comfort.</p><p class="sqsrte-large" style="white-space:pre-wrap;">Modern G500 models now feature a <strong>9-speed automatic transmission</strong>, providing smooth shifts across a wide range of gear ratios. This allows for efficient highway cruising in higher gears while maintaining strong torque in low-range settings for off-road challenges.</p>`);
 safeSetInnerHTML(4, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/G55_Schöckl_2009.jpg" alt="Two class G-class wagons in Austria">`);
 safeSetInnerHTML(4, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">Two class G-class wagons in Austria</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:G55_%2B_G_%2B_Sch%C3%B6ckl,_2009.JPG" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 4);
+hideElement("btb_video_embed", 4);
 safeSetInnerHTML(5, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 155-159: Structural Elements</h1></div>`);
 safeSetInnerHTML(5, "btb_icon_1", `<div class="icon-container"><i class="fas fa-shield-alt"></i></div><div class="title-container">Reinforced Structure</div><div class="content-container">Built to withstand tough impacts and protect key components during off-road adventures.</div>`);
 safeSetInnerHTML(5, "btb_icon_2", `<div class="icon-container"><i class="fas fa-globe"></i></div><div class="title-container">Skid Plate Protection</div><div class="content-container">Shields the underbody from rocks and debris, essential for rough terrain.</div>`);
@@ -206,6 +229,8 @@ hideElement("btb_image", 5);
 hideElement("btb_caption", 5);
 safeSetInnerHTML(5, "btb_audio", `<div class="audio-player"><a href="#" class="read-to-me-btn" onclick="toggleAudio(event, 'audio5', 'playPauseIcon5', 'progressBar5')"><i id="playPauseIcon5" class="fas fa-play icon"></i>Read to Me</a><input type="range" id="progressBar5" class="progress-bar" value="0" max="100"><audio id="audio5" src="https://behind-the-builds.github.io/btb/g500/audio/g500_instructions_155_159.mp3"></audio></div>`);
 safeSetInnerHTML(5, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In <strong>Instructions 155-159</strong>, we add lateral and longitudinal structural elements around the engine and base of the model, mimicking the sturdy design of the G-Class. Built with off-road durability in mind, the G-Class features reinforced framing and underbody protection to shield critical components from rough terrain. One key feature is the use of <strong>skid plates</strong> beneath the engine, transfer case, and transmission. These plates prevent rocks and debris from damaging the vehicle's underside, an essential component for navigating rocky paths and uneven ground.</p><p class="sqsrte-large" style="white-space:pre-wrap;">First introduced with the early G-Class models, these elements have been refined over the years to ensure the G500 remains resilient in extreme conditions, helping it achieve legendary status among off-road vehicles.</p>`);
+hideElement("btb_video_header", 5);
+hideElement("btb_video_embed", 5);
 hideExtraSections(5);
 const gridChanges = [{'elementClass': 'btb_icon_1', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 1, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_maintext', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 2, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 2, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_maintext', 'sectionIndex': 2, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 3, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 3, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_maintext', 'sectionIndex': 3, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 4, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 4, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 5, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 5, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_maintext', 'sectionIndex': 5, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '26'}}];
 

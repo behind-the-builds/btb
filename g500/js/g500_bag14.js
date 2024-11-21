@@ -1,6 +1,6 @@
 
 function isDesktopView() {
-    return window.innerWidth > 750;
+    return window.innerWidth > 767;
 }
 
 
@@ -67,6 +67,21 @@ function getElementsInSection(sectionIndex, className) {
 
 function applyGridLayout() {
     console.log("applyGridLayout called");
+
+    // Video resizing logic
+    const containers = document.querySelectorAll('.btb_video_embed'); // Select all divs with the fixed class
+
+    containers.forEach(container => {
+        const iframe = container.querySelector('iframe'); // Get the iframe inside the container
+        if (iframe) {
+            const containerWidth = container.offsetWidth; // Get the width of the container
+            const aspectRatio = 16 / 9; // Video aspect ratio
+
+            // Calculate and set the height of the iframe
+            iframe.style.width = '100%'; // Ensure iframe fills the width of the container
+            iframe.style.height = `${containerWidth / aspectRatio}px`; // Adjust height to maintain aspect ratio
+        }
+    });
 
     if (typeof gridChanges === 'undefined') {
         console.warn("gridChanges is not defined. Skipping applyGridLayout.");
@@ -174,6 +189,8 @@ safeSetInnerHTML(1, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(1, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In Bag 14, we build the <strong>working hood</strong> of the G-Class model. The hinge mechanism is essential for allowing the hood to open and close smoothly, providing access to the engine compartment.</p><p class="sqsrte-large" style="white-space:pre-wrap;">An interesting aspect of the G-Class's history is its use in various humanitarian missions. In the 1990s, the G-Class was utilized by organizations such as the Red Cross and UN peacekeeping forces in conflict zones due to its reliability and off-road capabilities. This reputation for resilience has made it a preferred choice for those needing a dependable vehicle in challenging environments.</p>`);
 safeSetInnerHTML(1, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Mercedes-Benz_G-Class_(17146029221).jpg" alt="A UN G-Class">`);
 safeSetInnerHTML(1, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">A UN G-Class</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Mercedes-Benz_G-Class_(17146029221).jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 1);
+hideElement("btb_video_embed", 1);
 safeSetInnerHTML(2, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 587-590: Hinge Mechanism Assembly</h1></div>`);
 safeSetInnerHTML(2, "btb_icon_1", `<div class="icon-container"><i class="fas fa-wrench"></i></div><div class="title-container">Durable Design</div><div class="content-container">Built for longevity and rugged use, essential for the G-Class’s demanding off-road and military roots.</div>`);
 safeSetInnerHTML(2, "btb_icon_2", `<div class="icon-container"><i class="fas fa-clock"></i></div><div class="title-container">Iconic Heritage</div><div class="content-container">G-Class development started in 1973, leading to its iconic 1979 launch.</div>`);
@@ -182,6 +199,8 @@ safeSetInnerHTML(2, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(2, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this section, we assemble the <strong>hinge mechanism</strong> that allows the G-Class’s hood to open smoothly, providing easy access to the engine compartment. Hinge mechanisms may seem straightforward, but in vehicles built for rugged use, they must balance durability with ease of operation.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The development of the G-Class began in <strong>1972-1973</strong>, when Mercedes-Benz, in collaboration with Steyr-Daimler-Puch, designed it for military needs, prioritizing durability across all components. After years of testing and refinement, the vehicle officially launched in <strong>1979</strong>. Even as the model evolved into a luxury vehicle, its core design, including features like the hood and hinges, retained a rugged quality. The G-Class became iconic not only for its capability but also for its style, earning fans like Pope John Paul II, who chose a G-Wagen as his Popemobile in the early 1980s.</p>`);
 safeSetInnerHTML(2, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Luxembourg,_visite_officielle_Pape_François_26.09.2024_(128).jpg" alt="G500 Popemobile in Luxembourg">`);
 safeSetInnerHTML(2, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">G500 Popemobile in Luxembourg</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Luxembourg,_visite_officielle_Pape_Fran%C3%A7ois_26.09.2024_(128).jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 2);
+hideElement("btb_video_embed", 2);
 safeSetInnerHTML(3, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 591-621: Hood Sides Assembly</h1></div>`);
 safeSetInnerHTML(3, "btb_icon_1", `<div class="icon-container"><i class="fas fa-car"></i></div><div class="title-container">Iconic Profile</div><div class="content-container">Straight lines and flat surfaces contribute to the unmistakable G-Class aesthetic and rugged look.</div>`);
 safeSetInnerHTML(3, "btb_icon_2", `<div class="icon-container"><i class="fas fa-wind"></i></div><div class="title-container">Aerodynamic Refinement</div><div class="content-container">Slight updates over time improved airflow, enhancing the G-Class’s performance without altering its look.</div>`);
@@ -190,6 +209,8 @@ safeSetInnerHTML(3, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(3, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this phase, we assemble the <strong>sides of the hood</strong>, which help frame the engine compartment above the wheel wells. The G-Class's angular hood design is part of its iconic profile, emphasizing straight lines and flat surfaces. These features, originally intended to simplify manufacturing and reinforce strength, became a hallmark of the G-Class’s aesthetic appeal.</p><p class="sqsrte-large" style="white-space:pre-wrap;">From a design perspective, the G-Class has remained virtually unchanged since its debut in 1979. This boxy, utilitarian look was essential in off-road conditions, but it has also helped the G-Class endure as a symbol of rugged elegance in the luxury market. The side panels of the hood, like much of the vehicle, have seen minor refinements to improve aerodynamics, yet the fundamental silhouette and sturdy construction endure, a testament to the “form follows function” ethos that shaped the original model.</p>`);
 safeSetInnerHTML(3, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Blue_Mercedes_G_55_AMG,_Berlin.jpg" alt="G55 AMG in Berlin">`);
 safeSetInnerHTML(3, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">G55 AMG in Berlin</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Blue_Mercedes_G_55_AMG,_Berlin.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 3);
+hideElement("btb_video_embed", 3);
 safeSetInnerHTML(4, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 622-636: Hood Assembly</h1></div>`);
 safeSetInnerHTML(4, "btb_icon_1", `<div class="icon-container"><i class="fas fa-car"></i></div><div class="title-container">Functional Aesthetics</div><div class="content-container">The hood serves to protect the engine while maintaining the G-Class’s iconic and timeless look.</div>`);
 safeSetInnerHTML(4, "btb_icon_2", `<div class="icon-container"><i class="fas fa-award"></i></div><div class="title-container">Lasting Appeal</div><div class="content-container">G-Class’s design balance led to exclusive releases, like the G63 AMG 6x6 and G650 Maybach.</div>`);
@@ -198,6 +219,8 @@ safeSetInnerHTML(4, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(4, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this final stage of hood assembly, we bring together the central hood panel, completing the engine cover. The hood itself serves both functional and stylistic purposes, protecting the engine from harsh environments while enhancing the G-Class’s recognizable look.</p><p class="sqsrte-large" style="white-space:pre-wrap;">Despite the G-Class’s iconic status, Mercedes-Benz has carefully balanced updates to meet modern standards while preserving its heritage. The G-Class was revamped in 2018 with a new platform for improved handling, but the exterior—including the hood—remained largely unchanged, preserving the look that enthusiasts love. This combination of timeless design with cutting-edge engineering has contributed to the G-Class’s lasting appeal, leading to special editions and limited releases, such as the G63 AMG 6x6, and even the ultra-exclusive G650 Maybach Landaulet.</p>`);
 safeSetInnerHTML(4, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Mercedes-Maybach_G_650_Landaulet_IMG_0753.jpg" alt="G650 Maybach Landaulet">`);
 safeSetInnerHTML(4, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">G650 Maybach Landaulet</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Mercedes-Maybach_G_650_Landaulet_IMG_0753.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 4);
+hideElement("btb_video_embed", 4);
 hideExtraSections(4);
 const gridChanges = [{'elementClass': 'btb_icon_1', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 1, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 2, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 2, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 3, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 3, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 4, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 4, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}];
 

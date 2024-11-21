@@ -1,6 +1,6 @@
 
 function isDesktopView() {
-    return window.innerWidth > 750;
+    return window.innerWidth > 767;
 }
 
 
@@ -67,6 +67,21 @@ function getElementsInSection(sectionIndex, className) {
 
 function applyGridLayout() {
     console.log("applyGridLayout called");
+
+    // Video resizing logic
+    const containers = document.querySelectorAll('.btb_video_embed'); // Select all divs with the fixed class
+
+    containers.forEach(container => {
+        const iframe = container.querySelector('iframe'); // Get the iframe inside the container
+        if (iframe) {
+            const containerWidth = container.offsetWidth; // Get the width of the container
+            const aspectRatio = 16 / 9; // Video aspect ratio
+
+            // Calculate and set the height of the iframe
+            iframe.style.width = '100%'; // Ensure iframe fills the width of the container
+            iframe.style.height = `${containerWidth / aspectRatio}px`; // Adjust height to maintain aspect ratio
+        }
+    });
 
     if (typeof gridChanges === 'undefined') {
         console.warn("gridChanges is not defined. Skipping applyGridLayout.");
@@ -174,6 +189,8 @@ safeSetInnerHTML(1, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(1, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In Bag 12, we focus on constructing the <strong>front dashboard</strong>, including the dashboard frame and windshield wipers of the G-Class model. The dashboard is a critical component that houses various controls and displays, providing the driver with essential information and functionality for a smooth driving experience.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The evolution of dashboard controls in vehicles like the G-Class reflects significant advancements in automotive technology. Early models featured basic instrumentation with analog gauges that displayed speed, fuel level, and engine temperature. As technology progressed, dashboards became more sophisticated, integrating digital displays and advanced infotainment systems. The introduction of features such as navigation systems, climate control interfaces, and multimedia connectivity transformed dashboards into multifunctional command centers.</p>`);
 safeSetInnerHTML(1, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/53678777769_d2eed9548d_o.jpg" alt="2025 G-Class Dashboard">`);
 safeSetInnerHTML(1, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">2025 G-Class Dashboard</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://www.flickr.com/photos/artvlive/53678777769/" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 1);
+hideElement("btb_video_embed", 1);
 safeSetInnerHTML(2, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 517-537: Dashboard and Wiper Assembly</h1></div>`);
 safeSetInnerHTML(2, "btb_icon_1", `<div class="icon-container"><i class="fas fa-toolbox"></i></div><div class="title-container">Structural Integrity</div><div class="content-container">The dashboard frame provides stability for various components.</div>`);
 safeSetInnerHTML(2, "btb_icon_2", `<div class="icon-container"><i class="fas fa-eye"></i></div><div class="title-container">Enhanced Design</div><div class="content-container">Vertical windshield design improves visibility despite aerodynamic trade-offs.</div>`);
@@ -182,6 +199,8 @@ safeSetInnerHTML(2, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(2, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this section, we assemble the <strong>front dashboard</strong> along with its frame and windshield wipers.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The design of the G-Class's vertical windshield contributes to its distinctive aesthetic but also impacts aerodynamics. While a vertical windshield may not be as aerodynamically efficient as a sloped design, it enhances visibility and provides a unique look that has become iconic for the G-Class. This design choice aligns with Mercedes-Benz's philosophy of combining functionality with style, ensuring that even with lower aerodynamic efficiency, drivers enjoy an unparalleled view of their surroundings.</p>`);
 safeSetInnerHTML(2, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Mercedes-Benz_G_63_AMG_(W_463,_3._Facelift).jpg" alt="AMG G-63">`);
 safeSetInnerHTML(2, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">AMG G-63</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Mercedes-Benz_G_63_AMG_(W_463,_3._Facelift).jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 2);
+hideElement("btb_video_embed", 2);
 hideExtraSections(2);
 const gridChanges = [{'elementClass': 'btb_icon_1', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 1, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 2, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 2, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}];
 

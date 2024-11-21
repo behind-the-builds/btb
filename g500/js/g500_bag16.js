@@ -1,6 +1,6 @@
 
 function isDesktopView() {
-    return window.innerWidth > 750;
+    return window.innerWidth > 767;
 }
 
 
@@ -67,6 +67,21 @@ function getElementsInSection(sectionIndex, className) {
 
 function applyGridLayout() {
     console.log("applyGridLayout called");
+
+    // Video resizing logic
+    const containers = document.querySelectorAll('.btb_video_embed'); // Select all divs with the fixed class
+
+    containers.forEach(container => {
+        const iframe = container.querySelector('iframe'); // Get the iframe inside the container
+        if (iframe) {
+            const containerWidth = container.offsetWidth; // Get the width of the container
+            const aspectRatio = 16 / 9; // Video aspect ratio
+
+            // Calculate and set the height of the iframe
+            iframe.style.width = '100%'; // Ensure iframe fills the width of the container
+            iframe.style.height = `${containerWidth / aspectRatio}px`; // Adjust height to maintain aspect ratio
+        }
+    });
 
     if (typeof gridChanges === 'undefined') {
         console.warn("gridChanges is not defined. Skipping applyGridLayout.");
@@ -174,6 +189,8 @@ safeSetInnerHTML(1, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(1, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In Bag 16, we construct the <strong>side walls of the cargo area</strong>. These panels in the real G-Class are built for durability, using high-strength steel for structural stability. Over the years, Mercedes-Benz has updated these materials to enhance protection and reduce weight. In 2019, the G-Class received a lighter, more rigid frame, incorporating ultra-high-strength steel and aluminum to balance off-road capability with modern performance.</p><p class="sqsrte-large" style="white-space:pre-wrap;">Originally, the G-Class relied on galvanized steel to prevent rust in tough environments, an essential feature for off-road use. The combination of robust materials has made the G-Class’s cargo area suitable for heavy-duty tasks, from adventure to emergency use, while maintaining the vehicle's classic rugged look.</p>`);
 safeSetInnerHTML(1, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/G-Class_assembly,_2009_(20).JPG" alt="G-Class assembly">`);
 safeSetInnerHTML(1, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">G-Class assembly</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:G-Class_assembly,_2009_(20).JPG" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 1);
+hideElement("btb_video_embed", 1);
 safeSetInnerHTML(2, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 628-727: Side Wall Assembly</h1></div>`);
 safeSetInnerHTML(2, "btb_icon_1", `<div class="icon-container"><i class="fas fa-shield-alt"></i></div><div class="title-container">Armored Protection</div><div class="content-container">Reinforced with ballistic materials, ensuring safety for high-risk missions.</div>`);
 safeSetInnerHTML(2, "btb_icon_2", `<div class="icon-container"><i class="fas fa-box"></i></div><div class="title-container">Secure Cargo Space</div><div class="content-container">Built for heavy-duty use, with armored models adding top-level security.</div>`);
@@ -182,6 +199,8 @@ safeSetInnerHTML(2, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(2, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this stage, we build the <strong>side walls of the cargo area</strong>, completing a key structural component of the G-Class model. These side walls echo the real G-Class’s rugged cargo area, which can be customized with armored options. For example, in bulletproof G-Class models, reinforced steel, multi-layer ballistic glass, and specialized run-flat tires create a secure cabin capable of withstanding ballistic threats.</p><p class="sqsrte-large" style="white-space:pre-wrap;">Armored versions of the G-Class are designed to support security missions in urban and remote areas alike. Features like the armored cargo side panels provide essential protection for transporting valuable equipment and supplies, ensuring safety without sacrificing the vehicle’s luxury or performance.</p>`);
 safeSetInnerHTML(2, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Mercedes_Benz_G._Trasco._Spielvogel1.jpg" alt="An armored G-Class by Trasco">`);
 safeSetInnerHTML(2, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">An armored G-Class by Trasco</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Mercedes_Benz_G._Trasco._Spielvogel1.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 2);
+hideElement("btb_video_embed", 2);
 hideExtraSections(2);
 const gridChanges = [{'elementClass': 'btb_icon_1', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 1, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 2, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 2, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}];
 

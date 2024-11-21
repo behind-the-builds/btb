@@ -1,6 +1,6 @@
 
 function isDesktopView() {
-    return window.innerWidth > 750;
+    return window.innerWidth > 767;
 }
 
 
@@ -67,6 +67,21 @@ function getElementsInSection(sectionIndex, className) {
 
 function applyGridLayout() {
     console.log("applyGridLayout called");
+
+    // Video resizing logic
+    const containers = document.querySelectorAll('.btb_video_embed'); // Select all divs with the fixed class
+
+    containers.forEach(container => {
+        const iframe = container.querySelector('iframe'); // Get the iframe inside the container
+        if (iframe) {
+            const containerWidth = container.offsetWidth; // Get the width of the container
+            const aspectRatio = 16 / 9; // Video aspect ratio
+
+            // Calculate and set the height of the iframe
+            iframe.style.width = '100%'; // Ensure iframe fills the width of the container
+            iframe.style.height = `${containerWidth / aspectRatio}px`; // Adjust height to maintain aspect ratio
+        }
+    });
 
     if (typeof gridChanges === 'undefined') {
         console.warn("gridChanges is not defined. Skipping applyGridLayout.");
@@ -172,8 +187,10 @@ safeSetInnerHTML(1, "btb_icon_2", `<div class="icon-container"><i class="fas fa-
 hideElement("btb_icon_3", 1);
 safeSetInnerHTML(1, "btb_audio", `<div class="audio-player"><a href="#" class="read-to-me-btn" onclick="toggleAudio(event, 'audio1', 'playPauseIcon1', 'progressBar1')"><i id="playPauseIcon1" class="fas fa-play icon"></i>Read to Me</a><input type="range" id="progressBar1" class="progress-bar" value="0" max="100"><audio id="audio1" src="https://behind-the-builds.github.io/btb/g500/audio/g500_bag_2.mp3"></audio></div>`);
 safeSetInnerHTML(1, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">The <strong>Mercedes-Benz G500</strong> engine is known for its robust power and off-road capability. Traditionally, the G500 has been equipped with a <strong>4.0-liter twin-turbo V8</strong> engine, delivering impressive power for both on-road and off-road performance. This V8 configuration has been a hallmark of the G-Class, providing the torque and durability necessary to navigate difficult terrains with ease.</p><p class="sqsrte-large" style="white-space:pre-wrap;">However, starting with the 2025 model year, the G500 has transitioned to a <strong>turbocharged 3.0-liter inline-six engine</strong>, which offers enhanced performance and efficiency while maintaining the vehicle's legendary capabilities.</p>`);
-safeSetInnerHTML(1, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/IAA_2021,_Munich_(IAA10148).jpg" alt="The M256 inline-six engine used in the 2024 G500">`);
+safeSetInnerHTML(1, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/IAA_2021_Munich_(IAA10148).jpg" alt="The M256 inline-six engine used in the 2024 G500">`);
 safeSetInnerHTML(1, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">The M256 inline-six engine used in the 2024 G500</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:IAA_2021,_Munich_(IAA10148).jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 1);
+hideElement("btb_video_embed", 1);
 safeSetInnerHTML(2, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 32-51: Steering System</h1></div>`);
 safeSetInnerHTML(2, "btb_icon_1", `<div class="icon-container"><i class="fas fa-cogs"></i></div><div class="title-container">Ackermann Steering</div><div class="content-container">Advanced geometry reduces tire wear and improves handling in tight turns.</div>`);
 safeSetInnerHTML(2, "btb_icon_2", `<div class="icon-container"><i class="fas fa-globe"></i></div><div class="title-container">Off-Road Precision</div><div class="content-container">Enhances maneuverability on rugged terrain, crucial for the G-Class's capabilities.</div>`);
@@ -182,6 +199,8 @@ safeSetInnerHTML(2, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(2, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In these instructions, we build the functional steering system of the model which, impressively for a LEGO model, incorporates <strong>Ackermann steering geometry</strong>. This design principle, used in almost all real vehicles, ensures that the inner wheel turns at a sharper angle than the outer wheel during cornering.</p><p class="sqsrte-large" style="white-space:pre-wrap;">Ackermann steering geometry provides several benefits in full-size vehicles. It reduces tire scrub during turns, which decreases wear and improves handling, especially at lower speeds and in tight spaces. For off-road vehicles like the G-Class, this steering design enhances maneuverability on rugged terrain, allowing for precise navigation around obstacles.</p>`);
 safeSetInnerHTML(2, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Ackermann.jpg" alt="Diagram of Ackermann steering principle">`);
 safeSetInnerHTML(2, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">Diagram of Ackermann steering principle</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Ackermann.svg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 2);
+hideElement("btb_video_embed", 2);
 safeSetInnerHTML(3, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 52-93: Engine Housing and Pistons</h1></div>`);
 safeSetInnerHTML(3, "btb_icon_1", `<div class="icon-container"><i class="fas fa-wrench"></i></div><div class="title-container">Inline-Six Engine Design</div><div class="content-container">Compact and balanced, ideal for performance and efficient use of engine bay space.</div>`);
 safeSetInnerHTML(3, "btb_icon_2", `<div class="icon-container"><i class="fas fa-car"></i></div><div class="title-container">Power in a Small Space</div><div class="content-container">The inline-six engine enables powerful performance without requiring a large space.</div>`);
@@ -189,7 +208,9 @@ hideElement("btb_icon_3", 3);
 hideElement("btb_image", 3);
 hideElement("btb_caption", 3);
 safeSetInnerHTML(3, "btb_audio", `<div class="audio-player"><a href="#" class="read-to-me-btn" onclick="toggleAudio(event, 'audio3', 'playPauseIcon3', 'progressBar3')"><i id="playPauseIcon3" class="fas fa-play icon"></i>Read to Me</a><input type="range" id="progressBar3" class="progress-bar" value="0" max="100"><audio id="audio3" src="https://behind-the-builds.github.io/btb/g500/audio/g500_instructions_52_93.mp3"></audio></div>`);
-safeSetInnerHTML(3, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this part of the build, we assemble the <strong>engine housing</strong> and the <strong>working pistons</strong> of the model’s engine. The real Mercedes-Benz G500 has transitioned to a <strong>turbocharged 3.0-liter inline-six engine</strong> for the 2025 model year, emphasizing both power and efficiency in a compact design.</p><p class="sqsrte-large" style="white-space:pre-wrap;">Mercedes-Benz has historically used both <strong>V-type and inline engines</strong> in its lineup, with V engines, such as the V6 and V8, becoming increasingly popular for their space efficiency and power. Unlike inline engines, which align cylinders in a single row, the <strong>V configuration</strong> arranges cylinders in two angled rows, creating a “V” shape. This design keeps the engine shorter in length and lower in height, optimizing it for a lower center of gravity and efficient packaging.</p>`);
+safeSetInnerHTML(3, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this section of the build, we focus on constructing the <strong>engine housing</strong> and the <strong>working pistons</strong> of the model’s new engine. The 2025 Mercedes-Benz G500 introduces a <strong>turbocharged 3.0-liter inline-six engine</strong>, showcasing Mercedes' commitment to modern engineering that balances performance with efficiency. This inline-six engine delivers ample power while offering improved fuel efficiency and a refined driving experience, highlighting a shift towards more compact and sustainable designs.</p><p class="sqsrte-large" style="white-space:pre-wrap;">Historically, the G500 featured a <strong>4.0-liter twin-turbo V8</strong>, a powerful engine revered for its off-road capability and robust performance. While the V8 remains iconic, the move to the inline-six marks a new era for the G-Class, emphasizing advancements in technology without compromising the rugged versatility that defines this legendary vehicle.</p>`);
+hideElement("btb_video_header", 3);
+hideElement("btb_video_embed", 3);
 hideExtraSections(3);
 const gridChanges = [{'elementClass': 'btb_icon_1', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 1, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 2, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 2, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 3, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 3, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_maintext', 'sectionIndex': 3, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '26'}}];
 

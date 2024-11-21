@@ -1,6 +1,6 @@
 
 function isDesktopView() {
-    return window.innerWidth > 750;
+    return window.innerWidth > 767;
 }
 
 
@@ -67,6 +67,21 @@ function getElementsInSection(sectionIndex, className) {
 
 function applyGridLayout() {
     console.log("applyGridLayout called");
+
+    // Video resizing logic
+    const containers = document.querySelectorAll('.btb_video_embed'); // Select all divs with the fixed class
+
+    containers.forEach(container => {
+        const iframe = container.querySelector('iframe'); // Get the iframe inside the container
+        if (iframe) {
+            const containerWidth = container.offsetWidth; // Get the width of the container
+            const aspectRatio = 16 / 9; // Video aspect ratio
+
+            // Calculate and set the height of the iframe
+            iframe.style.width = '100%'; // Ensure iframe fills the width of the container
+            iframe.style.height = `${containerWidth / aspectRatio}px`; // Adjust height to maintain aspect ratio
+        }
+    });
 
     if (typeof gridChanges === 'undefined') {
         console.warn("gridChanges is not defined. Skipping applyGridLayout.");
@@ -174,6 +189,8 @@ safeSetInnerHTML(1, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(1, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this section, we construct the <strong>front seats</strong> of the G-Class model, starting with the passenger side and then moving to the driver's side.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The front seats of the G-Class have seen significant advancements over the years. While earlier models featured basic seating, modern iterations incorporate high-quality materials and advanced ergonomic designs. A notable feature is <strong>active side bolstering</strong>, which adjusts to provide better support during cornering and off-road maneuvers, enhancing occupant safety and comfort.</p>`);
 safeSetInnerHTML(1, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Mercedes-Benz_G-Class_6x6_JPN_010.JPG" alt="G-Class front seats">`);
 safeSetInnerHTML(1, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">G-Class front seats</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Mercedes-Benz_G-Class_6x6_JPN_010.JPG" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 1);
+hideElement("btb_video_embed", 1);
 safeSetInnerHTML(2, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 417-429: Passenger Side Seat Assembly</h1></div>`);
 safeSetInnerHTML(2, "btb_icon_1", `<div class="icon-container"><i class="fas fa-chair"></i></div><div class="title-container">Comfort Design</div><div class="content-container">Passenger seat designed for easy entry and comfort.</div>`);
 safeSetInnerHTML(2, "btb_icon_2", `<div class="icon-container"><i class="fas fa-shield-alt"></i></div><div class="title-container">Active Side Bolstering</div><div class="content-container">Adjusts for support during cornering, enhancing safety.</div>`);
@@ -182,6 +199,8 @@ safeSetInnerHTML(2, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(2, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this section, we focus on assembling the <strong>passenger side front seat</strong>. The design prioritizes comfort and accessibility, ensuring easy entry and exit while providing a supportive seating experience. Adjustable features in this LEGO model replicate the real vehicle’s attention to detail.</p><p class="sqsrte-large" style="white-space:pre-wrap;">Modern G-Class seats are built with high-quality upholstery and cushioning that enhance passenger comfort during both short trips and long journeys. The spacious design reflects Mercedes-Benz's commitment to creating an inviting interior.</p>`);
 safeSetInnerHTML(2, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Norwegian_Mercedes-Benz_G-Class_vehicle.jpg" alt="Norwegian G-Class">`);
 safeSetInnerHTML(2, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">Norwegian G-Class</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Norwegian_Mercedes-Benz_G-Class_vehicle.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 2);
+hideElement("btb_video_embed", 2);
 safeSetInnerHTML(3, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 430-442: Driver's Side Seat Assembly</h1></div>`);
 safeSetInnerHTML(3, "btb_icon_1", `<div class="icon-container"><i class="fas fa-cogs"></i></div><div class="title-container">Ergonomic Design</div><div class="content-container">Driver's seat designed for optimal control and comfort.</div>`);
 safeSetInnerHTML(3, "btb_icon_2", `<div class="icon-container"><i class="fas fa-eye"></i></div><div class="title-container">Commanding View</div><div class="content-container">High driving position improves visibility in various terrains.</div>`);
@@ -190,6 +209,8 @@ safeSetInnerHTML(3, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(3, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this section, we assemble the <strong>driver's side front seat</strong>. This seat is engineered for optimal ergonomics, allowing for easy access to controls while providing a commanding view of the road.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The driver's seat features adjustable settings that cater to individual preferences, enhancing the driving experience on various terrains. The incorporation of active side bolstering ensures that drivers remain securely positioned during dynamic driving situations.</p>`);
 safeSetInnerHTML(3, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/G-Class_assembly,_2009_(32).JPG" alt="G-Class driver's seat at the factory">`);
 safeSetInnerHTML(3, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">G-Class driver's seat at the factory</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:G-Class_assembly,_2009_(32).JPG" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 3);
+hideElement("btb_video_embed", 3);
 hideExtraSections(3);
 const gridChanges = [{'elementClass': 'btb_icon_1', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 1, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 2, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 2, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 3, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 3, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}];
 

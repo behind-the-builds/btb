@@ -1,6 +1,6 @@
 
 function isDesktopView() {
-    return window.innerWidth > 750;
+    return window.innerWidth > 767;
 }
 
 
@@ -67,6 +67,21 @@ function getElementsInSection(sectionIndex, className) {
 
 function applyGridLayout() {
     console.log("applyGridLayout called");
+
+    // Video resizing logic
+    const containers = document.querySelectorAll('.btb_video_embed'); // Select all divs with the fixed class
+
+    containers.forEach(container => {
+        const iframe = container.querySelector('iframe'); // Get the iframe inside the container
+        if (iframe) {
+            const containerWidth = container.offsetWidth; // Get the width of the container
+            const aspectRatio = 16 / 9; // Video aspect ratio
+
+            // Calculate and set the height of the iframe
+            iframe.style.width = '100%'; // Ensure iframe fills the width of the container
+            iframe.style.height = `${containerWidth / aspectRatio}px`; // Adjust height to maintain aspect ratio
+        }
+    });
 
     if (typeof gridChanges === 'undefined') {
         console.warn("gridChanges is not defined. Skipping applyGridLayout.");
@@ -174,6 +189,8 @@ safeSetInnerHTML(1, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(1, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In Bag 17, we assemble the <strong>rear tailgate</strong>, along with <strong>wheel well trim</strong> and <strong>door steps</strong>. These elements are designed for durability and practical function, providing essential access, protection, and clearance for rugged environments. The door steps help ease entry, especially in lifted G-Class models, while the tailgate offers versatile access to the rear cargo space. In real-world applications, the G-Class’s robust tailgate is crucial for quick cargo loading in harsh conditions, reflecting the vehicle’s legacy of utility in challenging terrains.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The G-Class’s functional design has been instrumental in mountain rescues and special operations. Used by teams like Germany's Bad Kohlgrub mountain rescue, it offers easy access for transporting equipment in difficult landscapes.</p>`);
 safeSetInnerHTML(1, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Mercedes_Benz_GD_in_Lithuanian_service.jpg" alt="G-Class in Lithuanian service">`);
 safeSetInnerHTML(1, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">G-Class in Lithuanian service</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Mercedes_Benz_GD_in_Lithuanian_service.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 1);
+hideElement("btb_video_embed", 1);
 safeSetInnerHTML(2, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 728-739: Wheel Well Trim and Door Steps</h1></div>`);
 safeSetInnerHTML(2, "btb_icon_1", `<div class="icon-container"><i class="fas fa-shoe-prints"></i></div><div class="title-container">Enhanced Accessibility</div><div class="content-container">Door steps make entry easier, especially valuable in rugged or lifted G-Class models.</div>`);
 safeSetInnerHTML(2, "btb_icon_2", `<div class="icon-container"><i class="fas fa-shield-alt"></i></div><div class="title-container">Protective Trim</div><div class="content-container">Wheel well trim guards against debris, maintaining durability in off-road settings.</div>`);
@@ -182,6 +199,8 @@ hideElement("btb_image", 2);
 hideElement("btb_caption", 2);
 safeSetInnerHTML(2, "btb_audio", `<div class="audio-player"><a href="#" class="read-to-me-btn" onclick="toggleAudio(event, 'audio2', 'playPauseIcon2', 'progressBar2')"><i id="playPauseIcon2" class="fas fa-play icon"></i>Read to Me</a><input type="range" id="progressBar2" class="progress-bar" value="0" max="100"><audio id="audio2" src="https://behind-the-builds.github.io/btb/g500/audio/g500_instructions_728_739.mp3"></audio></div>`);
 safeSetInnerHTML(2, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this section, we attach the <strong>wheel well trim</strong> and <strong>door steps</strong>. The wheel well trim provides clearance and protects the body from debris, essential in off-road conditions. The door steps, or running boards, make it easier to enter and exit the vehicle, especially useful for lifted G-Class models or rough terrain. These components enhance usability without compromising the G-Class’s rugged appearance.</p>`);
+hideElement("btb_video_header", 2);
+hideElement("btb_video_embed", 2);
 safeSetInnerHTML(3, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 740-756: Tailgate Assembly</h1></div>`);
 safeSetInnerHTML(3, "btb_icon_1", `<div class="icon-container"><i class="fas fa-tools"></i></div><div class="title-container">Heavy-Duty Tailgate</div><div class="content-container">The tailgate is built for durability, supporting essential tasks in rugged environments.</div>`);
 safeSetInnerHTML(3, "btb_icon_2", `<div class="icon-container"><i class="fas fa-compass"></i></div><div class="title-container">Mission-Ready Access</div><div class="content-container">Ensures quick cargo access, valuable for rescue and special operations teams.</div>`);
@@ -190,6 +209,8 @@ safeSetInnerHTML(3, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(3, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this stage, we complete the <strong>rear tailgate assembly</strong>, designed for durability and frequent access to the rear cargo area. Known for its robust construction, the G-Class’s tailgate is built to withstand heavy-duty use in off-road and mission scenarios. The tailgate’s functionality has proven essential for various military and rescue operations, where quick and reliable cargo access is critical.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The G-Class’s tailgate has supported rescue teams and special operations worldwide, enabling easy transport of essential gear. Whether in mountainous terrains or during flood rescues, the tailgate design reflects the G-Class’s legacy of utility and resilience.</p>`);
 safeSetInnerHTML(3, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/KOCR_LUVW01.JPG" alt="G-Class serving in wet conditions">`);
 safeSetInnerHTML(3, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">G-Class serving in wet conditions</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:KOCR_LUVW01.JPG" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 3);
+hideElement("btb_video_embed", 3);
 hideExtraSections(3);
 const gridChanges = [{'elementClass': 'btb_icon_1', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 1, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 2, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 2, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_maintext', 'sectionIndex': 2, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 3, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 3, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}];
 

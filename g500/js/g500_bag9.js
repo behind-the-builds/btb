@@ -1,6 +1,6 @@
 
 function isDesktopView() {
-    return window.innerWidth > 750;
+    return window.innerWidth > 767;
 }
 
 
@@ -67,6 +67,21 @@ function getElementsInSection(sectionIndex, className) {
 
 function applyGridLayout() {
     console.log("applyGridLayout called");
+
+    // Video resizing logic
+    const containers = document.querySelectorAll('.btb_video_embed'); // Select all divs with the fixed class
+
+    containers.forEach(container => {
+        const iframe = container.querySelector('iframe'); // Get the iframe inside the container
+        if (iframe) {
+            const containerWidth = container.offsetWidth; // Get the width of the container
+            const aspectRatio = 16 / 9; // Video aspect ratio
+
+            // Calculate and set the height of the iframe
+            iframe.style.width = '100%'; // Ensure iframe fills the width of the container
+            iframe.style.height = `${containerWidth / aspectRatio}px`; // Adjust height to maintain aspect ratio
+        }
+    });
 
     if (typeof gridChanges === 'undefined') {
         console.warn("gridChanges is not defined. Skipping applyGridLayout.");
@@ -174,6 +189,8 @@ safeSetInnerHTML(1, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(1, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In Bag 9, we construct the <strong>fully functional rear doors</strong> of the G-Class model. These doors are the first components of the model to feature the <strong>copper orange</strong> color, which is a special option available for the <strong>2025 Professional Line</strong> of the G-Class. This vibrant color not only enhances the vehicle's aesthetic appeal but also signifies its unique identity within the G-Class lineup.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The use of copper orange began with the introduction of the Professional Line, which aimed to offer a more rugged and distinctive look while maintaining the luxury and functionality that Mercedes-Benz is known for. This color choice reflects a blend of modern design sensibilities and traditional off-road capability, making it a standout feature for those seeking both style and performance.</p>`);
 safeSetInnerHTML(1, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Mercedes-Benz_W_463_(2018)_Professional_Line_IAA_2021_1X7A0207.jpg" alt="2018 G-Class Pro Line">`);
 safeSetInnerHTML(1, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">2018 G-Class Pro Line</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Mercedes-Benz_W_463_(2018)_Professional_Line_IAA_2021_1X7A0207.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 1);
+hideElement("btb_video_embed", 1);
 safeSetInnerHTML(2, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 361-388: Driver's Side Door Assembly</h1></div>`);
 safeSetInnerHTML(2, "btb_icon_1", `<div class="icon-container"><i class="fas fa-clock"></i></div><div class="title-container">Military Durability</div><div class="content-container">Built to withstand impacts and harsh conditions from military origins.</div>`);
 hideElement("btb_icon_2", 2);
@@ -182,6 +199,8 @@ safeSetInnerHTML(2, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(2, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this section, we focus on assembling the <strong>driver's side rear door</strong>. The inclusion of a fully functional door mechanism in this LEGO model replicates the real vehicle’s attention to detail.</p><p class="sqsrte-large" style="white-space:pre-wrap;">Historically, G-Class doors have been built to withstand harsh conditions, reflecting their military origins. The robust construction ensures that they can handle impacts and maintain integrity during off-road adventures.</p>`);
 safeSetInnerHTML(2, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Mercedes_Benz_G-Class_Timboektoe-1.jpg" alt="G-Class in Timbuktu, Mali">`);
 safeSetInnerHTML(2, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">G-Class in Timbuktu, Mali</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Mercedes_Benz_G-Class_Timboektoe-1.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 2);
+hideElement("btb_video_embed", 2);
 safeSetInnerHTML(3, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 389-416: Passenger Side Door Assembly</h1></div>`);
 safeSetInnerHTML(3, "btb_icon_1", `<div class="icon-container"><i class="fas fa-chair"></i></div><div class="title-container">Comfort and Accessibility</div><div class="content-container">Passenger side rear door designed for easy entry and exit.</div>`);
 safeSetInnerHTML(3, "btb_icon_2", `<div class="icon-container"><i class="fas fa-palette"></i></div><div class="title-container">Modern Luxury</div><div class="content-container">Combines ruggedness with high-quality materials for passenger comfort.</div>`);
@@ -190,6 +209,8 @@ safeSetInnerHTML(3, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(3, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this section, we assemble the <strong>passenger side rear door</strong>.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The design of the passenger side rear door reflects modern luxury standards while maintaining ruggedness. Historically, G-Class vehicles have been known for their spacious interiors and high-quality materials, providing passengers with comfort during both on-road and off-road journeys.</p>`);
 safeSetInnerHTML(3, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Mercedes-AMG_G_63_Crazy_Colors_sunsetbeam.jpg" alt="Copper orange G-Class">`);
 safeSetInnerHTML(3, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">Copper orange G-Class</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Mercedes-AMG_G_63_Crazy_Colors_sunsetbeam.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 3);
+hideElement("btb_video_embed", 3);
 hideExtraSections(3);
 const gridChanges = [{'elementClass': 'btb_icon_1', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 2, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 3, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 3, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}];
 

@@ -1,6 +1,6 @@
 
 function isDesktopView() {
-    return window.innerWidth > 750;
+    return window.innerWidth > 767;
 }
 
 
@@ -67,6 +67,21 @@ function getElementsInSection(sectionIndex, className) {
 
 function applyGridLayout() {
     console.log("applyGridLayout called");
+
+    // Video resizing logic
+    const containers = document.querySelectorAll('.btb_video_embed'); // Select all divs with the fixed class
+
+    containers.forEach(container => {
+        const iframe = container.querySelector('iframe'); // Get the iframe inside the container
+        if (iframe) {
+            const containerWidth = container.offsetWidth; // Get the width of the container
+            const aspectRatio = 16 / 9; // Video aspect ratio
+
+            // Calculate and set the height of the iframe
+            iframe.style.width = '100%'; // Ensure iframe fills the width of the container
+            iframe.style.height = `${containerWidth / aspectRatio}px`; // Adjust height to maintain aspect ratio
+        }
+    });
 
     if (typeof gridChanges === 'undefined') {
         console.warn("gridChanges is not defined. Skipping applyGridLayout.");
@@ -174,6 +189,8 @@ safeSetInnerHTML(1, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(1, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In Bag 13, we focus on constructing the <strong>front bumper</strong> and <strong>grill</strong> of the G-Class model. The grill is not only a key aesthetic feature but also plays a crucial role in engine cooling and airflow. The assembly begins with completing the frame at the base of the windshield, followed by building the front grill and attaching the front bumper.</p><p class="sqsrte-large" style="white-space:pre-wrap;">A notable detail in this build is the license plate that reads "S G 1979." This plate pays homage to the origins of the Mercedes-Benz G-Class, which was first introduced in 1979. The "S" stands for Stuttgart, Germany, where Mercedes-Benz is headquartered; "G" represents <strong>Gelandewagen</strong>, meaning “terrain vehicle” in German; and "1979" marks the year of its launch. This small yet significant detail captures the essence of the G-Wagon’s heritage.</p>`);
 safeSetInnerHTML(1, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/1983_Mercedes_280_GE_Paris_Dakar.jpg" alt="1983 Paris-Dakar G-Class">`);
 safeSetInnerHTML(1, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">1983 Paris-Dakar G-Class</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:1983_Mercedes_280_GE_Paris_Dakar.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 1);
+hideElement("btb_video_embed", 1);
 safeSetInnerHTML(2, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 538-569: Front Grill Assembly</h1></div>`);
 safeSetInnerHTML(2, "btb_icon_1", `<div class="icon-container"><i class="fas fa-palette"></i></div><div class="title-container">Stylish Functionality</div><div class="content-container">The front grill combines protection with aesthetic appeal.</div>`);
 safeSetInnerHTML(2, "btb_icon_2", `<div class="icon-container"><i class="fas fa-tachometer-alt"></i></div><div class="title-container">Quality Engineering</div><div class="content-container">Designed for durability while enhancing airflow to the engine.</div>`);
@@ -182,6 +199,8 @@ safeSetInnerHTML(2, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(2, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this section, we construct the <strong>front grill</strong> of the G-Class model after completing two short steps at the base of the windshield frame. The grill is designed to be both functional and stylish, reflecting Mercedes-Benz's commitment to quality engineering.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The front grill has evolved over time, adapting to modern design trends while maintaining its iconic look. In earlier models, the grill was more utilitarian, but as luxury features were integrated into newer versions, it became a defining element of the vehicle's front fascia.</p>`);
 safeSetInnerHTML(2, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/1979_Mercedes-Benz_G-Class.jpg" alt="1979 G-Class">`);
 safeSetInnerHTML(2, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">1979 G-Class</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:1979_Mercedes-Benz_G-Class.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 2);
+hideElement("btb_video_embed", 2);
 safeSetInnerHTML(3, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 570-586: Front Bumper Assembly</h1></div>`);
 safeSetInnerHTML(3, "btb_icon_1", `<div class="icon-container"><i class="fas fa-shield-alt"></i></div><div class="title-container">Impact Absorption</div><div class="content-container">Front bumper designed to absorb impacts while enhancing rugged aesthetics.</div>`);
 safeSetInnerHTML(3, "btb_icon_2", `<div class="icon-container"><i class="fas fa-arrows-alt"></i></div><div class="title-container">Off-Road Features</div><div class="content-container">Modern bumpers include features for both safety and off-road utility.</div>`);
@@ -190,6 +209,8 @@ safeSetInnerHTML(3, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(3, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this section, we assemble and attach the <strong>front bumper</strong> to complete this segment of the build. The bumper is designed to absorb impacts while providing a rugged look that complements the overall design of the G-Class.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The front bumper has seen significant advancements since its introduction. Originally designed for basic protection, modern bumpers incorporate advanced materials and designs that enhance safety without compromising style. The integration of features like fog lights and winch mounts has made it a versatile component for both urban driving and off-road excursions.</p>`);
 safeSetInnerHTML(3, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Mercedes-Benz_W460_250_GD_IMG_4536.jpg" alt="W460 G-Class showcasing its rugged design.">`);
 safeSetInnerHTML(3, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">W460 G-Class showcasing its rugged design.</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Mercedes-Benz_W460_250_GD_IMG_4536.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 3);
+hideElement("btb_video_embed", 3);
 hideExtraSections(3);
 const gridChanges = [{'elementClass': 'btb_icon_1', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 1, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 2, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 2, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 3, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 3, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}];
 

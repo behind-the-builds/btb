@@ -1,6 +1,6 @@
 
 function isDesktopView() {
-    return window.innerWidth > 750;
+    return window.innerWidth > 767;
 }
 
 
@@ -67,6 +67,21 @@ function getElementsInSection(sectionIndex, className) {
 
 function applyGridLayout() {
     console.log("applyGridLayout called");
+
+    // Video resizing logic
+    const containers = document.querySelectorAll('.btb_video_embed'); // Select all divs with the fixed class
+
+    containers.forEach(container => {
+        const iframe = container.querySelector('iframe'); // Get the iframe inside the container
+        if (iframe) {
+            const containerWidth = container.offsetWidth; // Get the width of the container
+            const aspectRatio = 16 / 9; // Video aspect ratio
+
+            // Calculate and set the height of the iframe
+            iframe.style.width = '100%'; // Ensure iframe fills the width of the container
+            iframe.style.height = `${containerWidth / aspectRatio}px`; // Adjust height to maintain aspect ratio
+        }
+    });
 
     if (typeof gridChanges === 'undefined') {
         console.warn("gridChanges is not defined. Skipping applyGridLayout.");
@@ -174,6 +189,8 @@ safeSetInnerHTML(1, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(1, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In Bag 18, we assemble the <strong>roof</strong> of our G-Class model. Known for its strength, the G-Class roof can support up to <strong>150 kg</strong> (330 lbs), making it ideal for roof racks, gear, or tents. Since 2019, Mercedes has used high-strength steel and <strong>laser-welded joints</strong>, enhancing both durability and stability while also reducing weight. This construction ensures that the roof can withstand off-road conditions and adds to the G-Class’s rugged reputation.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The G-Class’s boxy roof design not only maximizes interior space but also reflects its military origins. Reinforced with ultra-high-strength steel, the roof has been further adapted for armoring in some variants, meeting the needs of high-security or expedition applications. This combination of utility and strength has helped the G-Class stand the test of time, becoming one of the most iconic off-road vehicles.</p>`);
 safeSetInnerHTML(1, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/153434948_f5a05344bb_o.jpg" alt="Canadian Armed Forces G-Class with loaded roof rack">`);
 safeSetInnerHTML(1, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">Canadian Armed Forces G-Class with loaded roof rack</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://www.flickr.com/photos/squeakymarmot/153434948" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 1);
+hideElement("btb_video_embed", 1);
 safeSetInnerHTML(2, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 757-789: Roof Assembly</h1></div>`);
 safeSetInnerHTML(2, "btb_icon_1", `<div class="icon-container"><i class="fas fa-shield-alt"></i></div><div class="title-container">Military-Grade Strength</div><div class="content-container">Engineered to support both expedition gear and armored configurations for high-security use.</div>`);
 safeSetInnerHTML(2, "btb_icon_2", `<div class="icon-container"><i class="fas fa-layer-group"></i></div><div class="title-container">Laser-Welded Joints</div><div class="content-container">Laser welding enhances durability and reduces weight for a stable, rugged roof design.</div>`);
@@ -182,6 +199,8 @@ safeSetInnerHTML(2, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(2, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this phase, we complete the <strong>roof assembly</strong>. Built for strength, the G-Class roof uses laser-welded, high-strength steel, providing a sturdy foundation for carrying gear and withstanding impacts. This structural strength aligns with the G-Class’s rugged capabilities, allowing it to perform reliably in demanding conditions. The roof’s durability also supports armored variants that meet military-grade standards, enhancing its role in high-security and adventure applications.</p>`);
 safeSetInnerHTML(2, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Terrängbil_5_Revinge_2015-1.jpg" alt="A military G-Class outfitted for off-road conditions">`);
 safeSetInnerHTML(2, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">A military G-Class outfitted for off-road conditions</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Terr%C3%A4ngbil_5_Revinge_2015-1.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 2);
+hideElement("btb_video_embed", 2);
 safeSetInnerHTML(3, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 790-800: Completing Tailgate and Rearview Mirror</h1></div>`);
 safeSetInnerHTML(3, "btb_icon_1", `<div class="icon-container"><i class="fas fa-clock"></i></div><div class="title-container">Royal Beginnings</div><div class="content-container">Suggested by the Shah of Iran, the G-Class evolved from military roots to luxury icon.</div>`);
 safeSetInnerHTML(3, "btb_icon_2", `<div class="icon-container"><i class="fas fa-globe"></i></div><div class="title-container">International Appeal</div><div class="content-container">First marketed as the Puch G in Austria and parts of Eastern Europe.</div>`);
@@ -190,6 +209,8 @@ safeSetInnerHTML(3, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(3, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this final stage, we complete the <strong>tailgate assembly</strong> and add the <strong>rearview mirror</strong>. The origins of the G-Class trace back to a proposal from the <strong>Shah of Iran</strong> in the early 1970s. A major shareholder in Mercedes-Benz, the Shah suggested creating a durable, off-road military vehicle, which led to the development of the G-Class.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The G-Class was initially marketed under the <strong>Puch brand</strong> in Austria and some Eastern European countries due to the collaboration with Steyr-Daimler-Puch. This durable, versatile vehicle was officially launched in 1979 and quickly gained popularity across global markets, transforming from a military icon into a luxury off-road vehicle.</p>`);
 safeSetInnerHTML(3, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Puch_300GD_Serbian_military_3.jpg" alt="A Serbian military Puch G-Class">`);
 safeSetInnerHTML(3, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">A Serbian military Puch G-Class</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Puch_300GD_Serbian_military_3.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 3);
+hideElement("btb_video_embed", 3);
 hideExtraSections(3);
 const gridChanges = [{'elementClass': 'btb_icon_1', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 1, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 2, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 2, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 3, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 3, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}];
 

@@ -1,6 +1,6 @@
 
 function isDesktopView() {
-    return window.innerWidth > 750;
+    return window.innerWidth > 767;
 }
 
 
@@ -67,6 +67,21 @@ function getElementsInSection(sectionIndex, className) {
 
 function applyGridLayout() {
     console.log("applyGridLayout called");
+
+    // Video resizing logic
+    const containers = document.querySelectorAll('.btb_video_embed'); // Select all divs with the fixed class
+
+    containers.forEach(container => {
+        const iframe = container.querySelector('iframe'); // Get the iframe inside the container
+        if (iframe) {
+            const containerWidth = container.offsetWidth; // Get the width of the container
+            const aspectRatio = 16 / 9; // Video aspect ratio
+
+            // Calculate and set the height of the iframe
+            iframe.style.width = '100%'; // Ensure iframe fills the width of the container
+            iframe.style.height = `${containerWidth / aspectRatio}px`; // Adjust height to maintain aspect ratio
+        }
+    });
 
     if (typeof gridChanges === 'undefined') {
         console.warn("gridChanges is not defined. Skipping applyGridLayout.");
@@ -174,6 +189,8 @@ safeSetInnerHTML(1, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(1, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In Bag 15, we assemble the <strong>front wheel wells</strong>, <strong>headlights</strong>, and <strong>rear bumper</strong> with taillights for our G-Class model. In this LEGO version, the front wheel wells have been designed with extra room to accommodate the suspension’s movement. This adaptation allows the model’s suspension to travel more freely during play, reflecting the off-road capability of the real G-Class.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The G-Class components, from its boxy headlights to its rugged rear bumper, showcase Mercedes-Benz’s blend of durability and style. Initially developed for military use, the G-Wagen's features are now icons of luxury. These parts stay true to the G-Class aesthetic, bridging its practical roots and upscale evolution.</p>`);
 safeSetInnerHTML(1, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/Mercedes_G_500.jpg" alt="Mercedes-Benz G500">`);
 safeSetInnerHTML(1, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">Mercedes-Benz G500</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:Mercedes_G_500.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 1);
+hideElement("btb_video_embed", 1);
 safeSetInnerHTML(2, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 637-664: Front Wheel Wells and Headlights</h1></div>`);
 safeSetInnerHTML(2, "btb_icon_1", `<div class="icon-container"><i class="fas fa-lightbulb"></i></div><div class="title-container">Iconic Headlights</div><div class="content-container">Square headlights have been a defining feature of the G-Class since its launch.</div>`);
 safeSetInnerHTML(2, "btb_icon_2", `<div class="icon-container"><i class="fas fa-globe"></i></div><div class="title-container">Off-Road Capability</div><div class="content-container">Extra room in wheel wells reflects suspension travel for navigating rugged terrain.</div>`);
@@ -182,6 +199,8 @@ safeSetInnerHTML(2, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(2, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this section, we build the <strong>front wheel wells</strong> and <strong>headlights</strong>. The G-Class’s distinctive headlights have remained a defining feature since the vehicle’s debut. When the G-Class was redesigned in 2018, Mercedes-Benz preserved the headlight shape, symbolizing its rugged heritage and timeless appeal.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The headlights were initially all about durability, built to withstand rough conditions. With technological upgrades, they now incorporate advanced lighting without losing their iconic shape. The LEGO model’s raised wheel wells also allow more suspension travel, echoing the G-Class’s off-road resilience and adapting it for play.</p>`);
 safeSetInnerHTML(2, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/G_500_exterior,_silver_(Mercedes-Benz)_left_side,_exterior,_front.jpg" alt="G500 front headlight">`);
 safeSetInnerHTML(2, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">G500 front headlight</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:G_500_exterior,_silver_(Mercedes-Benz)_left_side,_exterior,_front.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 2);
+hideElement("btb_video_embed", 2);
 safeSetInnerHTML(3, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 665-677: Rear Bumper and Taillights</h1></div>`);
 safeSetInnerHTML(3, "btb_icon_1", `<div class="icon-container"><i class="fas fa-car"></i></div><div class="title-container">Impact-Resistant Bumper</div><div class="content-container">Built to withstand rough terrain and impacts, staying true to the G-Class design.</div>`);
 safeSetInnerHTML(3, "btb_icon_2", `<div class="icon-container"><i class="fas fa-lightbulb"></i></div><div class="title-container">LED Taillights</div><div class="content-container">Enhanced visibility with LED updates while keeping the classic taillight shape.</div>`);
@@ -190,6 +209,8 @@ safeSetInnerHTML(3, "btb_audio", `<div class="audio-player"><a href="#" class="r
 safeSetInnerHTML(3, "btb_maintext", `<p class="sqsrte-large" style="white-space:pre-wrap;">In this stage, we build the <strong>rear bumper</strong> and <strong>taillights</strong>, both vital for the G-Class’s rugged functionality. The rear bumper has long been designed to endure impacts, a necessity for descending slopes and navigating difficult trails. Its boxy design complements the overall look and reinforces the G-Class’s durability.</p><p class="sqsrte-large" style="white-space:pre-wrap;">The taillights, originally simple in design, were updated with LEDs in recent years to improve visibility while preserving the classic squared-off shape. This blend of traditional styling and modern technology highlights the G-Class’s dual role as an off-road vehicle and a luxury icon.</p>`);
 safeSetInnerHTML(3, "btb_image", `<img src="https://behind-the-builds.github.io/btb/g500/images/G500,_rue_Bayard.jpg" alt="G500 in Paris, rear view">`);
 safeSetInnerHTML(3, "btb_caption", `<div class="caption-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;">G500 in Paris, rear view</p></div><div class="source-container" style="text-align: center;"><p class="sqsrte-medium" style="white-space:pre-wrap;"><a href="https://commons.wikimedia.org/wiki/File:G500,_rue_Bayard.jpg" target="_blank" style="color: #0073e6; text-decoration: underline;">source</a></p></div>`);
+hideElement("btb_video_header", 3);
+hideElement("btb_video_embed", 3);
 hideExtraSections(3);
 const gridChanges = [{'elementClass': 'btb_icon_1', 'sectionIndex': 1, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 1, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 2, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 2, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}, {'elementClass': 'btb_icon_1', 'sectionIndex': 3, 'default': {'gridColumnEnd': ''}, 'desktop': {'gridColumnEnd': '13'}}, {'elementClass': 'btb_icon_2', 'sectionIndex': 3, 'default': {'gridColumnStart': '', 'gridColumnEnd': ''}, 'desktop': {'gridColumnStart': '14', 'gridColumnEnd': '26'}}];
 
