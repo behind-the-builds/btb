@@ -192,7 +192,7 @@ safeSetInnerHTML(1, "btb_caption", `<div class="caption-container" style="text-a
 hideElement("btb_video_header", 1);
 hideElement("btb_video_embed", 1);
 safeSetInnerHTML(2, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Instructions 637-664: Front Wheel Wells and Headlights</h1></div>`);
-safeSetInnerHTML(2, "btb_icon_1", `<div class="icon-container"><i class="fas fa-lightbulb"></i></div><div class="title-container">Iconic Headlights</div><div class="content-container">Square headlights have been a defining feature of the G-Class since its launch.</div>`);
+safeSetInnerHTML(2, "btb_icon_1", `<div class="icon-container"><i class="fas fa-lightbulb"></i></div><div class="title-container">Iconic Headlights</div><div class="content-container">Round headlights have been a defining feature of the G-Class since its launch.</div>`);
 safeSetInnerHTML(2, "btb_icon_2", `<div class="icon-container"><i class="fas fa-globe"></i></div><div class="title-container">Off-Road Capability</div><div class="content-container">Extra room in wheel wells reflects suspension travel for navigating rugged terrain.</div>`);
 hideElement("btb_icon_3", 2);
 safeSetInnerHTML(2, "btb_audio", `<div class="audio-player"><a href="#" class="read-to-me-btn" onclick="toggleAudio(event, 'audio2', 'playPauseIcon2', 'progressBar2')"><i id="playPauseIcon2" class="fas fa-play icon"></i>Read to Me</a><input type="range" id="progressBar2" class="progress-bar" value="0" max="100"><audio id="audio2" src="https://behind-the-builds.github.io/btb/g500/audio/g500_instructions_637_664.mp3"></audio></div>`);
