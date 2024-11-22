@@ -181,7 +181,7 @@ function hideElement(className, sectionIndex) {
         }
     });
 }
-safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Bag 13: Front Bumper and Grill Construction</h1></div>`);
+safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Bag 13: Front Bumper and Grill</h1></div>`);
 safeSetInnerHTML(1, "btb_icon_1", `<div class="icon-container"><i class="fas fa-border-all"></i></div><div class="title-container">Iconic Front Grill</div><div class="content-container">The grill enhances airflow while contributing to the vehicle's rugged aesthetics.</div>`);
 safeSetInnerHTML(1, "btb_icon_2", `<div class="icon-container"><i class="fas fa-history"></i></div><div class="title-container">Tribute to Origins</div><div class="content-container">License plate "S G 1979" signifies the G-Class's rich history.</div>`);
 hideElement("btb_icon_3", 1);

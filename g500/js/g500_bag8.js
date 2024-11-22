@@ -181,7 +181,7 @@ function hideElement(className, sectionIndex) {
         }
     });
 }
-safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Bag 8: Rear Seats Construction</h1></div>`);
+safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Bag 8: Rear Seats</h1></div>`);
 safeSetInnerHTML(1, "btb_icon_1", `<div class="icon-container"><i class="fas fa-chair"></i></div><div class="title-container">Versatile Seating</div><div class="content-container">Rear seats can fold down to increase cargo space.</div>`);
 safeSetInnerHTML(1, "btb_icon_2", `<div class="icon-container"><i class="fas fa-smile"></i></div><div class="title-container">Enhanced Passenger Experience</div><div class="content-container">Modern models feature ergonomic designs for passenger comfort.</div>`);
 hideElement("btb_icon_3", 1);

@@ -181,7 +181,7 @@ function hideElement(className, sectionIndex) {
         }
     });
 }
-safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Bag 14: Hood Construction</h1></div>`);
+safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Bag 14: Hood</h1></div>`);
 safeSetInnerHTML(1, "btb_icon_1", `<div class="icon-container"><i class="fas fa-wrench"></i></div><div class="title-container">Functional Hinges</div><div class="content-container">Hood hinges allow easy access to the engine compartment for model observation.</div>`);
 safeSetInnerHTML(1, "btb_icon_2", `<div class="icon-container"><i class="fas fa-medkit"></i></div><div class="title-container">Humanitarian Missions</div><div class="content-container">Used by the Red Cross and UN for resilience in conflict zones and rough terrain.</div>`);
 hideElement("btb_icon_3", 1);

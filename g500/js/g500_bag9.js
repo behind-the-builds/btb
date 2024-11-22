@@ -181,7 +181,7 @@ function hideElement(className, sectionIndex) {
         }
     });
 }
-safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Bag 9: Rear Doors Construction</h1></div>`);
+safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Bag 9: Rear Doors</h1></div>`);
 safeSetInnerHTML(1, "btb_icon_1", `<div class="icon-container"><i class="fas fa-palette"></i></div><div class="title-container">Copper Orange</div><div class="content-container">Special color option for the 2025 Professional Line enhances aesthetic appeal.</div>`);
 hideElement("btb_icon_2", 1);
 hideElement("btb_icon_3", 1);

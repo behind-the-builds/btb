@@ -110,6 +110,6 @@ function isDesktopView() {
 }
 
 safeSetInnerHTML(0, "btb_video_header", `<div class="video-header">Watch the LEGO model designer demonstrate the model's control features:</div>`);
-safeSetInnerHTML(0, "btb_video_embed", `<iframe src="https://www.youtube.com/embed/fJawD19K5b4?si=RP6zi1MbZZAe4fB4&amp;start=516&amp;end=544" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`);
+safeSetInnerHTML(0, "btb_video_embed", `<iframe src="https://www.youtube.com/embed/fJawD19K5b4?si=RP6zi1MbZZAe4fB4&amp;start=516&amp;end=545" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`);
 applyGridLayout();
 window.addEventListener('resize', applyGridLayout);

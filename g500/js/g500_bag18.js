@@ -181,7 +181,7 @@ function hideElement(className, sectionIndex) {
         }
     });
 }
-safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Bag 18: Roof Assembly</h1></div>`);
+safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Bag 18: Roof</h1></div>`);
 safeSetInnerHTML(1, "btb_icon_1", `<div class="icon-container"><i class="fas fa-globe"></i></div><div class="title-container">High Load-Bearing Roof</div><div class="content-container">Supports up to 330 lbs (150 kg), ideal for roof racks and equipment on rugged journeys.</div>`);
 safeSetInnerHTML(1, "btb_icon_2", `<div class="icon-container"><i class="fas fa-hammer"></i></div><div class="title-container">Reinforced Durability</div><div class="content-container">Made with laser-welded steel, balancing strength and weight for off-road stability.</div>`);
 hideElement("btb_icon_3", 1);

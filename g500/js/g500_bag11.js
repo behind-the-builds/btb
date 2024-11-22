@@ -181,7 +181,7 @@ function hideElement(className, sectionIndex) {
         }
     });
 }
-safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Bag 11: Front Doors Construction</h1></div>`);
+safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Bag 11: Front Doors</h1></div>`);
 safeSetInnerHTML(1, "btb_icon_1", `<div class="icon-container"><i class="fas fa-door-open"></i></div><div class="title-container">Functional Design</div><div class="content-container">Front doors engineered for smooth operation and access.</div>`);
 safeSetInnerHTML(1, "btb_icon_2", `<div class="icon-container"><i class="fas fa-clock"></i></div><div class="title-container">Dakar Legacy</div><div class="content-container">The G-Class's success in the Paris-Dakar Rally highlighted its off-road prowess.</div>`);
 hideElement("btb_icon_3", 1);

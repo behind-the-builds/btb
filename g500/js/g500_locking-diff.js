@@ -110,6 +110,6 @@ function isDesktopView() {
 }
 
 safeSetInnerHTML(0, "btb_video_header", `<div class="video-header">Watch the LEGO model designer demonstrate the model's locking differentials:</div>`);
-safeSetInnerHTML(0, "btb_video_embed", `<iframe src="https://www.youtube.com/embed/fJawD19K5b4?si=qwTBddh0urRePyH6&amp;start=487" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`);
+safeSetInnerHTML(0, "btb_video_embed", `<iframe src="https://www.youtube.com/embed/fJawD19K5b4?si=qwTBddh0urRePyH6&amp;start=355&amp;end=487" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`);
 applyGridLayout();
 window.addEventListener('resize', applyGridLayout);

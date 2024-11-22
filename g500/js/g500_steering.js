@@ -110,6 +110,6 @@ function isDesktopView() {
 }
 
 safeSetInnerHTML(0, "btb_video_header", `<div class="video-header">Watch the LEGO model designer demonstrate its Ackermann steering implementation:</div>`);
-safeSetInnerHTML(0, "btb_video_embed", `<iframe src="https://www.youtube.com/embed/fJawD19K5b4?si=Go5zRdZMJKlQb_a1&amp;start=488&amp;end=516" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`);
+safeSetInnerHTML(0, "btb_video_embed", `<iframe src="https://www.youtube.com/embed/fJawD19K5b4?si=Go5zRdZMJKlQb_a1&amp;start=488&amp;end=517" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`);
 applyGridLayout();
 window.addEventListener('resize', applyGridLayout);
