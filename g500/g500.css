@@ -1,0 +1,23 @@
+
+.primary-title-container h1 {
+  color: black;
+}
+
+.title-container h1 {
+  color: #F2AA84;
+}
+
+.icon-container {
+  color: #EF5306;
+}
+
+.caption-container p {
+  color: black;
+}
+
+.btb_video_header {
+    display: inline-block; /* Ensures the span behaves like a block for centering */
+    text-align: center;    /* Centers text horizontally */
+    width: 100%;           /* Allows text alignment within the span's container */
+}
+
