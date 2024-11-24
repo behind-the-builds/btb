@@ -109,7 +109,7 @@ function isDesktopView() {
     return window.innerWidth > 767;
 }
 
-safeSetInnerHTML(0, "btb_video_header", `<div class="video-header">Watch a Defender navigate a muddy rutted road during a Camel Trophy event in the 1980s:</div>`);
+safeSetInnerHTML(0, "btb_video_header", `<div class="video-header">Watch a Range Rover navigate a muddy rutted road during a Camel Trophy event in the 1980s:</div>`);
 safeSetInnerHTML(0, "btb_video_embed", `<iframe src="https://www.youtube.com/embed/QtK_jnqGaLg?si=xWmQF0MUtCGpEChn&amp;start=148&amp;end=264" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`);
 applyGridLayout();
 window.addEventListener('resize', applyGridLayout);

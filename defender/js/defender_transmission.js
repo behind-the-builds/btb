@@ -110,6 +110,6 @@ function isDesktopView() {
 }
 
 safeSetInnerHTML(0, "btb_video_header", `<div class="video-header">Watch the model designer demonstrate the completed transmission system of the Defender:</div>`);
-safeSetInnerHTML(0, "btb_video_embed", `<iframe src="https://www.youtube.com/embed/p3DPvbhjX-M?si=cBQdONzG1Dka_Hb2&amp;start=79&amp;end=113" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`);
+safeSetInnerHTML(0, "btb_video_embed", `<iframe src="https://www.youtube.com/embed/p3DPvbhjX-M?si=cBQdONzG1Dka_Hb2&amp;start=79&amp;end=114" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`);
 applyGridLayout();
 window.addEventListener('resize', applyGridLayout);

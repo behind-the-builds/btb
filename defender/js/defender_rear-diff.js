@@ -110,6 +110,6 @@ function isDesktopView() {
 }
 
 safeSetInnerHTML(0, "btb_video_header", `<div class="video-header">Watch the Defender's rear differential in action</div>`);
-safeSetInnerHTML(0, "btb_video_embed", `<iframe src="https://www.youtube.com/embed/4fu4GmzpFmA?si=xYQdMLNBmPfnV3Bh&amp;start=148" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`);
+safeSetInnerHTML(0, "btb_video_embed", `<iframe src="https://www.youtube.com/embed/4fu4GmzpFmA?si=xYQdMLNBmPfnV3Bh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`);
 applyGridLayout();
 window.addEventListener('resize', applyGridLayout);
