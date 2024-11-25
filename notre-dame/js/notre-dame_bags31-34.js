@@ -181,7 +181,7 @@ function hideElement(className, sectionIndex) {
         }
     });
 }
-safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Bags 31-34: Finishing Touches and Notre-Dame's Legacy of Renewal</h1></div>`);
+safeSetInnerHTML(1, "btb_title", `<div class="title-container"><h1 style="white-space:pre-wrap;">Bags 31-34: Finishing Touches and Legacy of Renewal</h1></div>`);
 safeSetInnerHTML(1, "btb_icon_1", `<div class="icon-container"><i class="fas fa-church"></i></div><div class="title-container">Notre-Dame Restoration</div><div class="content-container">Restoration since 1163; 19th century revival by Eugène Viollet-le-Duc, modern work post-2019 fire aims for 2024 completion.</div>`);
 safeSetInnerHTML(1, "btb_icon_2", `<div class="icon-container"><i class="fas fa-tools"></i></div><div class="title-container">Gothic Features & Techniques</div><div class="content-container">Each phase, using traditional methods & modern tech, enhances Notre-Dame's Gothic elements and structural integrity.</div>`);
 hideElement("btb_icon_3", 1);
